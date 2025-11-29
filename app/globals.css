@@ -24,3 +24,153 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ------------------------ ANIMATIONS DES NOTES ------------------------ */
+
+/* POSITION DE BASE DES NOTES */
+.note {
+  pointer-events: none;
+  position: absolute;
+  bottom: 20px;     /* plus haut = mieux visible */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;  /* beaucoup plus visible */
+  text-shadow: 0 0 10px rgba(0,255,255,0.8);
+  opacity: 0;
+  z-index: 9999;
+}
+
+/* ANIMATIONS */
+@keyframes noteUp1 {
+  0%   { transform: translate(-50%, 0) rotate(-10deg); opacity: 0; }
+  20%  { opacity: 1; }
+  100% { transform: translate(-120%, -120px) rotate(-20deg); opacity: 0; }
+}
+
+@keyframes noteUp2 {
+  0%   { transform: translate(-50%, 0) rotate(10deg); opacity: 0; }
+  20%  { opacity: 1; }
+  100% { transform: translate(0%, -150px) rotate(20deg); opacity: 0; }
+}
+
+@keyframes noteUp3 {
+  0%   { transform: translate(-50%, 0) rotate(0deg); opacity: 0; }
+  20%  { opacity: 1; }
+  100% { transform: translate(80%, -130px) rotate(-15deg); opacity: 0; }
+}
+
+/* CLASSES TAILWIND TRIGGER */
+.animate-note1 {
+  animation: noteUp1 1.5s ease-out forwards;
+}
+
+.animate-note2 {
+  animation: noteUp2 1.8s ease-out forwards;
+}
+
+.animate-note3 {
+  animation: noteUp3 2s ease-out forwards;
+}
+
+/* ---- Gradient Border Animation ---- */
+.gradient-border {
+  background: linear-gradient(#212121, #212121) padding-box,
+              linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
+  background-size: 200% 100%;
+  animation: gradientMove 5s ease infinite;
+  border-radius: 16px;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.social-icons {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.social-icons .icon-content {
+  position: relative;
+}
+
+.social-icons .tooltip {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 10px;
+  border-radius: 5px;
+  background: #000;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 12px;
+  transition: 0.3s ease;
+}
+
+.social-icons .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -48px;
+}
+
+.social-icons .icon-content a {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.3s;
+  color: #4d4d4d;
+}
+
+.social-icons .icon-content a svg {
+  width: 26px;
+  height: 26px;
+  position: relative;
+  z-index: 2;
+}
+
+.social-icons .icon-content .filled {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  transition: 0.3s ease;
+}
+
+.social-icons .icon-content a:hover .filled {
+  height: 100%;
+}
+
+.social-icons a[data-social="linkedin"] .filled,
+.social-icons a[data-social="linkedin"] ~ .tooltip {
+  background: #0274b3;
+}
+
+.social-icons a[data-social="github"] .filled,
+.social-icons a[data-social="github"] ~ .tooltip {
+  background: #171717;
+}
+
+.social-icons a[data-social="discord"] .filled,
+.social-icons a[data-social="discord"] ~ .tooltip {
+  background-color: #7289da;
+}
