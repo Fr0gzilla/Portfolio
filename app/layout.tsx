@@ -1,6 +1,10 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ThemeProvider from "./components/ThemeProvider";
+import BackgroundGradient from "./components/BackgroundGradient";
+import ScrollToTop from "./components/ScrollToTop";
+import IntroAnimation from "./components/IntroAnimation";
 
 export const metadata = {
   title: "Portfolio – GIOANETTI Marceau",
@@ -9,11 +13,17 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
-      <body className="pl-64 bg-black text-white">
-        <Navbar />
-        <main className="min-h-screen py-10">{children}</main>
-        <Footer />
+    <html lang="fr" className="dark" suppressHydrationWarning>
+      <body className="min-h-screen transition-colors duration-300">
+        <ThemeProvider>
+          <IntroAnimation>
+            <BackgroundGradient />
+            <Navbar />
+            <main className="pt-20">{children}</main>
+            <Footer />
+            <ScrollToTop />
+          </IntroAnimation>
+        </ThemeProvider>
       </body>
     </html>
   );

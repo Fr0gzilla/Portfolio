@@ -1,46 +1,177 @@
 @import "tailwindcss";
 
+/* ======================== THEME VARIABLES ======================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #f0f4f8;
+  --bg-gradient-1: #c7d2fe;
+  --bg-gradient-2: #a5f3fc;
+  --bg-gradient-3: #fbcfe8;
+
+  --glass-bg: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.35);
+  --glass-shadow: rgba(0, 0, 0, 0.05);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  --accent: #f97316;
+  --accent-hover: #ea580c;
+  --accent-glow: rgba(249, 115, 22, 0.2);
+
+  --card-bg: rgba(255, 255, 255, 0.25);
+  --card-border: rgba(255, 255, 255, 0.4);
+
+  --nav-bg: rgba(255, 255, 255, 0.15);
+
+  --input-bg: rgba(255, 255, 255, 0.1);
+  --input-border: rgba(0, 0, 0, 0.15);
+  --input-focus: #f97316;
+}
+
+.dark {
+  --bg-primary: #050a18;
+  --bg-gradient-1: #1e1b4b;
+  --bg-gradient-2: #083344;
+  --bg-gradient-3: #4a044e;
+
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+
+  --accent: #22d3ee;
+  --accent-hover: #67e8f9;
+  --accent-glow: rgba(34, 211, 238, 0.2);
+
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.1);
+
+  --nav-bg: rgba(0, 0, 0, 0.5);
+
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --input-border: rgba(255, 255, 255, 0.1);
+  --input-focus: #22d3ee;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ======================== BASE ======================== */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ------------------------ ANIMATIONS DES NOTES ------------------------ */
+/* ======================== GLASSMORPHISM ======================== */
 
-/* POSITION DE BASE DES NOTES */
+.glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+}
+
+.glass-strong {
+  background: var(--card-bg);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+}
+
+.glass-nav {
+  background: var(--nav-bg);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* ======================== ANIMATED BACKGROUND BLOBS ======================== */
+
+.bg-gradient-animated {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bg-gradient-animated::before,
+.bg-gradient-animated::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.5;
+  animation: blobFloat 20s ease-in-out infinite alternate;
+}
+
+.bg-gradient-animated::before {
+  background: var(--bg-gradient-1);
+  top: -200px;
+  left: -100px;
+}
+
+.bg-gradient-animated::after {
+  background: var(--bg-gradient-2);
+  bottom: -200px;
+  right: -100px;
+  animation-delay: -10s;
+}
+
+.bg-blob-3 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  background: var(--bg-gradient-3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: blobFloat 25s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes blobFloat {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(80px, -60px) scale(1.1); }
+  66%  { transform: translate(-40px, 40px) scale(0.95); }
+  100% { transform: translate(60px, 20px) scale(1.05); }
+}
+
+/* ======================== ANIMATIONS NOTES ======================== */
+
 .note {
   pointer-events: none;
   position: absolute;
-  bottom: 20px;     /* plus haut = mieux visible */
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 28px;  /* beaucoup plus visible */
-  text-shadow: 0 0 10px rgba(0,255,255,0.8);
+  font-size: 28px;
+  text-shadow: 0 0 10px var(--accent-glow);
   opacity: 0;
   z-index: 9999;
 }
 
-/* ANIMATIONS */
 @keyframes noteUp1 {
   0%   { transform: translate(-50%, 0) rotate(-10deg); opacity: 0; }
   20%  { opacity: 1; }
@@ -59,39 +190,11 @@ body {
   100% { transform: translate(80%, -130px) rotate(-15deg); opacity: 0; }
 }
 
-/* CLASSES TAILWIND TRIGGER */
-.animate-note1 {
-  animation: noteUp1 1.5s ease-out forwards;
-}
+.animate-note1 { animation: noteUp1 1.5s ease-out forwards; }
+.animate-note2 { animation: noteUp2 1.8s ease-out forwards; }
+.animate-note3 { animation: noteUp3 2s ease-out forwards; }
 
-.animate-note2 {
-  animation: noteUp2 1.8s ease-out forwards;
-}
-
-.animate-note3 {
-  animation: noteUp3 2s ease-out forwards;
-}
-
-/* ---- Gradient Border Animation ---- */
-.gradient-border {
-  background: linear-gradient(#212121, #212121) padding-box,
-              linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
-  background-size: 200% 100%;
-  animation: gradientMove 5s ease infinite;
-  border-radius: 16px;
-}
-
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+/* ======================== SOCIAL ICONS ======================== */
 
 .social-icons {
   list-style: none;
@@ -112,8 +215,8 @@ body {
   transform: translateX(-50%);
   padding: 6px 10px;
   border-radius: 5px;
-  background: #000;
-  color: white;
+  background: var(--text-primary);
+  color: var(--bg-primary);
   opacity: 0;
   visibility: hidden;
   font-size: 12px;
@@ -131,13 +234,16 @@ body {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: white;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   transition: 0.3s;
-  color: #4d4d4d;
+  color: var(--text-secondary);
 }
 
 .social-icons .icon-content a svg {
@@ -158,6 +264,10 @@ body {
 
 .social-icons .icon-content a:hover .filled {
   height: 100%;
+}
+
+.social-icons .icon-content a:hover {
+  color: white;
 }
 
 .social-icons a[data-social="linkedin"] .filled,
