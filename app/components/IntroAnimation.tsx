@@ -1,10 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function IntroAnimation({ children }: { children: React.ReactNode }) {
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState(() => {
+    if (typeof window !== "undefined") {
+      return sessionStorage.getItem("introPlayed") === "true";
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (done) {
+      sessionStorage.setItem("introPlayed", "true");
+    }
+  }, [done]);
 
   return (
     <>

@@ -18,17 +18,17 @@ export default function BtsSioSection() {
 
       <div className="space-y-6 text-lg text-[var(--text-secondary)] leading-relaxed max-w-4xl mx-auto">
         <p>
-          Avant de commencer a parler de moi, je vous propose de presenter
-          en premier lieu ma filiere.
+          Avant de commencer à parler de moi, je vous propose de présenter
+          en premier lieu ma filière.
         </p>
 
         <p>
           Le <span className="font-semibold">BTS SIO</span> forme des
-          administrateurs systemes/reseaux et developpeurs.
+          administrateurs systèmes/réseaux et développeurs.
         </p>
 
         <p className="font-semibold text-xl mt-10 text-[var(--text-primary)]">
-          Le BTS SIO propose deux specialites :
+          Le BTS SIO propose deux spécialités :
         </p>
       </div>
 
@@ -41,13 +41,13 @@ export default function BtsSioSection() {
           </h3>
 
           <p className="text-[var(--text-secondary)] leading-relaxed mt-3">
-            L&apos;option SISR forme des professionnels des reseaux, serveurs et securite.
+            L&apos;option SISR forme des professionnels des réseaux, serveurs et sécurité.
           </p>
 
-          <p className="font-semibold mt-4 text-[var(--text-primary)]">Debouches :</p>
+          <p className="font-semibold mt-4 text-[var(--text-primary)]">Débouchés :</p>
 
           <ul className="list-disc ml-6 space-y-2 text-[var(--text-secondary)] mt-2">
-            <li>Admin systemes & reseaux</li>
+            <li>Admin systèmes & réseaux</li>
             <li>Tech infrastructure</li>
             <li>Tech support</li>
           </ul>
@@ -71,20 +71,20 @@ export default function BtsSioSection() {
               }}
               className="text-[var(--accent)] font-semibold whitespace-nowrap text-sm"
             >
-              👈 (la filiere que j&apos;ai choisie)
+              👈 (la filière que j&apos;ai choisie)
             </motion.span>
           </div>
 
           <p className="text-[var(--text-secondary)] leading-relaxed mt-3">
-            L&apos;option SLAM forme des developpeurs d&apos;applications.
+            L&apos;option SLAM forme des développeurs d&apos;applications.
           </p>
 
-          <p className="font-semibold mt-4 text-[var(--text-primary)]">Debouches :</p>
+          <p className="font-semibold mt-4 text-[var(--text-primary)]">Débouchés :</p>
 
           <ul className="list-disc ml-6 space-y-2 text-[var(--text-secondary)] mt-2">
-            <li>Developpeur d&apos;applications</li>
+            <li>Développeur d&apos;applications</li>
             <li>Analyste programmeur</li>
-            <li>Technicien d&apos;etudes</li>
+            <li>Technicien d&apos;études</li>
           </ul>
         </div>
       </div>

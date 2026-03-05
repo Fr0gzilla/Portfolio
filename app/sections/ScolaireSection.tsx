@@ -40,7 +40,7 @@ export default function ScolaireSection() {
           </p>
 
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            BTS Services Informatiques aux Organisations, option Solutions Logicielles et Applications Metiers (SLAM). Formation orientee developpement, conception d&apos;applications, bases de donnees, cybersecurite, et methodologies DevOps.
+            BTS Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métiers (SLAM). Formation orientée développement, conception d&apos;applications, bases de données, cybersécurité, et méthodologies DevOps.
           </p>
         </motion.div>
 
@@ -55,11 +55,11 @@ export default function ScolaireSection() {
                      hover:border-[var(--accent)]/50 hover:shadow-[0_0_20px_var(--accent-glow)]"
         >
           <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">
-            Baccalaureat General 🎓
+            Baccalauréat Général 🎓
           </h3>
 
           <p className="text-[var(--text-muted)]">
-            📍 Lycee Benjamin Franklin — Auray
+            📍 Lycée Benjamin Franklin — Auray
           </p>
 
           <p className="text-[var(--accent)] font-semibold mb-4">
@@ -67,7 +67,7 @@ export default function ScolaireSection() {
           </p>
 
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Bac General avec specialites Physique-Chimie & NSI (Numerique et Sciences Informatiques), et option Mathematiques. Formation scientifique solide orientee vers l&apos;informatique, la logique et la resolution de problemes.
+            Bac Général avec spécialités Physique-Chimie & NSI (Numérique et Sciences Informatiques), et option Mathématiques. Formation scientifique solide orientée vers l&apos;informatique, la logique et la résolution de problèmes.
           </p>
         </motion.div>
       </div>

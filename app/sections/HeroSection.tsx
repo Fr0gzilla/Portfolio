@@ -27,7 +27,7 @@ function useTypingEffect(text: string, speed = 60, delay = 800) {
 }
 
 export default function HeroSection() {
-  const subtitle = "Etudiant en 2e annee de BTS SIO option SLAM";
+  const subtitle = "Étudiant en 2e année de BTS SIO option SLAM";
   const { displayed, done } = useTypingEffect(subtitle, 45, 1000);
 
   return (

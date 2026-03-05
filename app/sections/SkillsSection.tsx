@@ -26,13 +26,13 @@ export default function SkillsSection() {
       className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[var(--text-primary)]">
-        Mes competences developpement 🧑‍💻
+        Mes compétences développement 🧑‍💻
       </h2>
 
       <div className="h-[3px] w-24 bg-[var(--accent)] mb-10" />
 
       <p className="text-lg text-[var(--text-secondary)] leading-relaxed max-w-4xl mb-14">
-        Toutes ces connaissances ont ete acquises via mes etudes et mes projets.
+        Toutes ces connaissances ont été acquises via mes études et mes projets.
       </p>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-10">

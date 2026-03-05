@@ -2,7 +2,6 @@ import HeroSection from "./sections/HeroSection";
 import AboutSection from "./sections/AboutSection";
 import BtsSioSection from "./sections/BtsSioSection";
 import SkillsSection from "./sections/SkillsSection";
-import ToolsSection from "./sections/ToolsSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import ParcoursSection from "./sections/ParcoursSection";
 import ScolaireSection from "./sections/ScolaireSection";
@@ -15,7 +14,6 @@ export default function Home() {
       <AboutSection />
       <BtsSioSection />
       <SkillsSection />
-      <ToolsSection />
       <ProjectsSection />
       <ParcoursSection />
       <ScolaireSection />

@@ -6,10 +6,9 @@ import ThemeToggleButton from "./ThemeToggleButton";
 
 const links = [
   { id: "home", label: "Accueil" },
-  { id: "about", label: "A propos" },
+  { id: "about", label: "À propos" },
   { id: "bts", label: "BTS SIO" },
-  { id: "skills", label: "Competences" },
-  { id: "tools", label: "Outils" },
+  { id: "skills", label: "Compétences" },
   { id: "projects", label: "Projets" },
   { id: "parcours", label: "Parcours Pro" },
   { id: "scolaire", label: "Scolaire" },

@@ -31,10 +31,10 @@ export default function ProjectsSection() {
           </h3>
 
           <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
-            Beatshelf est une application de streaming musical centree sur l&apos;ecoute et l&apos;organisation de sa musique. Elle integre un lecteur audio directement dans l&apos;interface et permet de gerer sa bibliotheque : creation de playlists, ajout/suppression de morceaux, gestion des favoris, et suivi de l&apos;historique d&apos;ecoute.
+            Beatshelf est une application de streaming musical centrée sur l&apos;écoute et l&apos;organisation de sa musique. Elle intègre un lecteur audio directement dans l&apos;interface et permet de gérer sa bibliothèque : création de playlists, ajout/suppression de morceaux, gestion des favoris, et suivi de l&apos;historique d&apos;écoute.
           </p>
           <p className="text-[var(--text-secondary)] leading-relaxed text-sm mb-4">
-            Le projet prevoit aussi l&apos;integration de <span className="text-[var(--accent)] font-semibold">HarmonyMind</span> pour ajouter plus tard des recommandations personnalisees.
+            Le projet prévoit aussi l&apos;intégration de <span className="text-[var(--accent)] font-semibold">HarmonyMind</span> pour ajouter plus tard des recommandations personnalisées.
           </p>
 
           <h4 className="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-2">Langages</h4>
@@ -42,7 +42,7 @@ export default function ProjectsSection() {
             <span className="px-3 py-1 text-xs font-medium rounded-full glass text-[var(--accent)]">JavaScript / TypeScript</span>
             <span className="px-3 py-1 text-xs font-medium rounded-full glass text-[var(--accent)]">SQL</span>
           </div>
-          <p className="text-[var(--text-muted)] text-xs mb-3">Front + lecteur (Zustand, Howler.js) · Base de donnees (Supabase / PostgreSQL)</p>
+          <p className="text-[var(--text-muted)] text-xs mb-3">Front + lecteur (Zustand, Howler.js) · Base de données (Supabase / PostgreSQL)</p>
 
           <a
             href="https://github.com/Fr0gzilla/Beatshelf"
@@ -70,7 +70,7 @@ export default function ProjectsSection() {
           </h3>
 
           <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
-            HarmonyMind est un module d&apos;intelligence pour Beatshelf qui vise a rendre l&apos;ecoute plus personnalisee. Il exploite les donnees d&apos;usage (historique, favoris, playlists) et des embeddings pour generer des recommandations (titres similaires, decouverte progressive, enchainements coherents).
+            HarmonyMind est un module d&apos;intelligence pour Beatshelf qui vise à rendre l&apos;écoute plus personnalisée. Il exploite les données d&apos;usage (historique, favoris, playlists) et des embeddings pour générer des recommandations (titres similaires, découverte progressive, enchaînements cohérents).
           </p>
 
           <h4 className="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-2">Langages</h4>
@@ -78,13 +78,13 @@ export default function ProjectsSection() {
             <span className="px-3 py-1 text-xs font-medium rounded-full glass text-[var(--accent)]">Python</span>
             <span className="px-3 py-1 text-xs font-medium rounded-full glass text-[var(--accent)]">SQL</span>
           </div>
-          <p className="text-[var(--text-muted)] text-xs mb-3">Embeddings + recommandations (pipeline IA) · Donnees (Supabase / PostgreSQL)</p>
+          <p className="text-[var(--text-muted)] text-xs mb-3">Embeddings + recommandations (pipeline IA) · Données (Supabase / PostgreSQL)</p>
 
           <span
             className="mt-auto px-6 py-3 bg-[var(--text-muted)]/30 text-[var(--text-muted)]
                        font-semibold rounded-lg self-start inline-block cursor-not-allowed"
           >
-            Bientot disponible
+            Bientôt disponible
           </span>
         </motion.div>
         {/* CLOUDINVENTORY V2 */}
@@ -102,10 +102,10 @@ export default function ProjectsSection() {
           </h3>
 
           <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
-            CloudInventory v2 est un outil API-first d&apos;inventaire et de supervision d&apos;un parc virtualise. Il centralise les informations issues de plusieurs sources (notamment vCenter/RVTools et EfficientIP) pour construire une vue d&apos;inventaire exploitable (serveurs, VMs, IP/DNS, applications, utilisateurs) et faciliter la recherche/filtrage ainsi que la detection/simulation d&apos;alertes.
+            CloudInventory v2 est un outil API-first d&apos;inventaire et de supervision d&apos;un parc virtualisé. Il centralise les informations issues de plusieurs sources (notamment vCenter/RVTools et EfficientIP) pour construire une vue d&apos;inventaire exploitable (serveurs, VMs, IP/DNS, applications, utilisateurs) et faciliter la recherche/filtrage ainsi que la détection/simulation d&apos;alertes.
           </p>
           <p className="text-[var(--text-secondary)] leading-relaxed text-sm mb-4">
-            Dans cette v2, <span className="text-[var(--accent)] font-semibold">EfficientIP</span> est la source de verite pour l&apos;IP/DNS, tandis que <span className="text-[var(--accent)] font-semibold">vCenter</span> reste la source pour l&apos;etat VM / remontees VMware Tools.
+            Dans cette v2, <span className="text-[var(--accent)] font-semibold">EfficientIP</span> est la source de vérité pour l&apos;IP/DNS, tandis que <span className="text-[var(--accent)] font-semibold">vCenter</span> reste la source pour l&apos;état VM / remontées VMware Tools.
           </p>
 
           <h4 className="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-2">Langages</h4>
@@ -115,7 +115,7 @@ export default function ProjectsSection() {
             <span className="px-3 py-1 text-xs font-medium rounded-full glass text-[var(--accent)]">PHP</span>
             <span className="px-3 py-1 text-xs font-medium rounded-full glass text-[var(--accent)]">PowerShell / VBA</span>
           </div>
-          <p className="text-[var(--text-muted)] text-xs mb-3">Pipeline d&apos;integration (ingestion, normalisation) · BDD (MySQL/PostgreSQL) · Interface web · Automatisation ETL</p>
+          <p className="text-[var(--text-muted)] text-xs mb-3">Pipeline d&apos;intégration (ingestion, normalisation) · BDD (MySQL/PostgreSQL) · Interface web · Automatisation ETL</p>
 
           <a
             href="https://github.com/Fr0gzilla/CloudInventory.v2"
