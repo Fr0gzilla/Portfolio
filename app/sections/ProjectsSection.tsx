@@ -62,7 +62,7 @@ export default function ProjectsSection() {
             <div className="overflow-hidden">
               <div className="rounded-xl overflow-hidden border border-[var(--accent)]/30 mb-4">
                 <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/previews/beatshelf.png`}
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/previews/beatshelf.webp`}
                   alt="Aperçu Beatshelf"
                   className="w-full rounded-xl"
                 />
@@ -154,7 +154,7 @@ export default function ProjectsSection() {
             <div className="overflow-hidden">
               <div className="rounded-xl overflow-hidden border border-[var(--accent)]/30 mb-4">
                 <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/previews/cloudinventory.png`}
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/previews/cloudinventory.webp`}
                   alt="Aperçu CloudInventory v2"
                   className="w-full rounded-xl"
                 />
@@ -215,7 +215,7 @@ export default function ProjectsSection() {
             <div className="overflow-hidden">
               <div className="rounded-xl overflow-hidden border border-[var(--accent)]/30 mb-4">
                 <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/previews/cyberhoot.png`}
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/previews/cyberhoot.webp`}
                   alt="Aperçu Cyber-Hoot"
                   className="w-full rounded-xl"
                 />

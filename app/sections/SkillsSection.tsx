@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const skills = [
-  { name: "HTML", img: `${basePath}/logos/html-light.png` },
-  { name: "CSS", img: `${basePath}/logos/css-light.png` },
-  { name: "JavaScript", img: `${basePath}/logos/javascript-light.png` },
-  { name: "Java", img: `${basePath}/logos/java.png` },
-  { name: "TailwindCSS", img: `${basePath}/logos/tailwind.png` },
-  { name: "Python", img: `${basePath}/logos/python.png` },
-  { name: "Linux (Ubuntu)", img: `${basePath}/logos/ubuntu-linux.png` },
-  { name: "MySQL", img: `${basePath}/logos/mysql.png` },
+  { name: "HTML", img: `${basePath}/logos/html-light.webp` },
+  { name: "CSS", img: `${basePath}/logos/css-light.webp` },
+  { name: "JavaScript", img: `${basePath}/logos/javascript-light.webp` },
+  { name: "Java", img: `${basePath}/logos/java.webp` },
+  { name: "TailwindCSS", img: `${basePath}/logos/tailwind.webp` },
+  { name: "Python", img: `${basePath}/logos/python.webp` },
+  { name: "Linux (Ubuntu)", img: `${basePath}/logos/ubuntu-linux.webp` },
+  { name: "MySQL", img: `${basePath}/logos/mysql.webp` },
   { name: "TypeScript", img: `${basePath}/logos/typescript.svg` },
   { name: "PHP", img: `${basePath}/logos/php.svg` },
 ];
