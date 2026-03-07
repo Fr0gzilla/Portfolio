@@ -2,17 +2,19 @@
 
 import { motion } from "framer-motion";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const skills = [
-  { name: "HTML", img: "/logos/html-light.png" },
-  { name: "CSS", img: "/logos/css-light.png" },
-  { name: "JavaScript", img: "/logos/javascript-light.png" },
-  { name: "Java", img: "/logos/java.png" },
-  { name: "TailwindCSS", img: "/logos/tailwind.png" },
-  { name: "Python", img: "/logos/python.png" },
-  { name: "Linux (Ubuntu)", img: "/logos/ubuntu-linux.png" },
-  { name: "MySQL", img: "/logos/mysql.png" },
-  { name: "TypeScript", img: "/logos/typescript.svg" },
-  { name: "PHP", img: "/logos/php.svg" },
+  { name: "HTML", img: `${basePath}/logos/html-light.png` },
+  { name: "CSS", img: `${basePath}/logos/css-light.png` },
+  { name: "JavaScript", img: `${basePath}/logos/javascript-light.png` },
+  { name: "Java", img: `${basePath}/logos/java.png` },
+  { name: "TailwindCSS", img: `${basePath}/logos/tailwind.png` },
+  { name: "Python", img: `${basePath}/logos/python.png` },
+  { name: "Linux (Ubuntu)", img: `${basePath}/logos/ubuntu-linux.png` },
+  { name: "MySQL", img: `${basePath}/logos/mysql.png` },
+  { name: "TypeScript", img: `${basePath}/logos/typescript.svg` },
+  { name: "PHP", img: `${basePath}/logos/php.svg` },
 ];
 
 export default function SkillsSection() {

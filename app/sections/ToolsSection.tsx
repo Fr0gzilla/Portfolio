@@ -2,12 +2,14 @@
 
 import { motion } from "framer-motion";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const tools = [
-  { name: "VSCode", img: "/logos/vscode.png" },
-  { name: "GitHub", img: "/logos/github-light.png" },
-  { name: "GitLab", img: "/logos/gitlab.png" },
-  { name: "Kali Linux", img: "/logos/kali-linux.png" },
-  { name: "Palo Alto", img: "/logos/palo-alto.png" },
+  { name: "VSCode", img: `${basePath}/logos/vscode.png` },
+  { name: "GitHub", img: `${basePath}/logos/github-light.png` },
+  { name: "GitLab", img: `${basePath}/logos/gitlab.png` },
+  { name: "Kali Linux", img: `${basePath}/logos/kali-linux.png` },
+  { name: "Palo Alto", img: `${basePath}/logos/palo-alto.png` },
 ];
 
 export default function ToolsSection() {
