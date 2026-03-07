@@ -44,7 +44,7 @@ export default function AboutSection() {
 
         <div className="mt-10 flex justify-center">
           <a
-            href="/cv"
+            href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/cv`}
             className="px-10 py-4 rounded-xl border border-[var(--accent)] text-[var(--accent)] text-xl font-semibold hover:bg-[var(--accent)] hover:text-[var(--bg-primary)] transition-all duration-300"
           >
             CV

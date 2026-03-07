@@ -25,7 +25,7 @@ export default function CvPage() {
 
       <div className="glass-strong rounded-2xl overflow-hidden" style={{ height: "85vh" }}>
         <iframe
-          src="/cv.pdf"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/cv.pdf`}
           className="w-full h-full border-none"
           title="CV - Marceau Gioanetti"
         />
