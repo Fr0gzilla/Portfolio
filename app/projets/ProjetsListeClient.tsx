@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Projet } from "./data";
@@ -23,12 +22,7 @@ export default function ProjetsListeClient({ projets }: { projets: Projet[] }) {
   }, [filtre, projets]);
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16"
-    >
+    <section className="page-fade max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16">
       <Link
         href="/#projects"
         className="inline-flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors mb-6"
@@ -47,7 +41,7 @@ export default function ProjetsListeClient({ projets }: { projets: Projet[] }) {
             key={f.id}
             type="button"
             onClick={() => setFiltre(f.id)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
               filtre === f.id
                 ? "bg-[var(--accent)] text-[var(--bg-primary)]"
                 : "glass text-[var(--text-secondary)] hover:text-[var(--accent)]"
@@ -60,14 +54,9 @@ export default function ProjetsListeClient({ projets }: { projets: Projet[] }) {
 
       <div className="grid sm:grid-cols-2 gap-6">
         {projetsAffiches.map((projet) => (
-          <motion.div
+          <div
             key={projet.slug}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -4 }}
-            className="glass-strong rounded-2xl p-6 flex flex-col transition-all duration-300 hover:border-[var(--accent)]/50 hover:shadow-[0_0_20px_var(--accent-glow)]"
+            className="glass-strong rounded-2xl p-6 flex flex-col transition-colors duration-200 hover:border-[var(--accent)]/50"
           >
             <h3 className="text-2xl font-bold mb-2 text-[var(--text-primary)]">
               {projet.titre} <span aria-hidden="true">{projet.emoji}</span>
@@ -78,13 +67,13 @@ export default function ProjetsListeClient({ projets }: { projets: Projet[] }) {
             <p className="text-[var(--text-secondary)] leading-relaxed mb-5">{projet.resume}</p>
             <Link
               href={`${basePath}/projets/${projet.slug}`}
-              className="mt-auto px-5 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--bg-primary)] font-semibold rounded-lg transition-all duration-300 self-start"
+              className="mt-auto px-5 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--bg-primary)] font-semibold rounded-lg transition-colors duration-200 self-start"
             >
               Voir la fiche complète
             </Link>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 }

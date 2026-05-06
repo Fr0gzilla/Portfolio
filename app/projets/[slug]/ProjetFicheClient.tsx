@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import type { CompetenceReferentiel, Projet } from "../data";
 
@@ -30,12 +29,7 @@ export default function ProjetFicheClient({
   next: Projet | null;
 }) {
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-16"
-    >
+    <article className="page-fade max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-16">
       {/* Header */}
       <div className="mb-8">
         <Link
@@ -69,13 +63,7 @@ export default function ProjetFicheClient({
 
       {/* Aperçu */}
       {projet.preview && (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="glass-strong rounded-2xl overflow-hidden mb-10 border border-[var(--accent)]/30"
-        >
+        <div className="glass-strong rounded-2xl overflow-hidden mb-10 border border-[var(--accent)]/30">
           <img
             src={projet.preview}
             alt={`Aperçu de l'application ${projet.titre}`}
@@ -83,21 +71,18 @@ export default function ProjetFicheClient({
             decoding="async"
             className="w-full h-auto"
           />
-        </motion.div>
+        </div>
       )}
 
       <div className="space-y-8">
-        {/* Contexte */}
         <Bloc titre="Contexte">
           <p className="text-[var(--text-secondary)] leading-relaxed">{projet.contexte}</p>
         </Bloc>
 
-        {/* Demande */}
         <Bloc titre="Demande / besoin exprimé">
           <p className="text-[var(--text-secondary)] leading-relaxed">{projet.demande}</p>
         </Bloc>
 
-        {/* Démarche */}
         <Bloc titre="Démarche">
           <ol className="space-y-3">
             {projet.demarche.map((etape, i) => (
@@ -111,7 +96,6 @@ export default function ProjetFicheClient({
           </ol>
         </Bloc>
 
-        {/* Technologies & outils */}
         <Bloc titre="Technologies & outils">
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
@@ -147,13 +131,12 @@ export default function ProjetFicheClient({
           </div>
         </Bloc>
 
-        {/* Compétences référentielles mobilisées */}
         <Bloc titre="Compétences référentielles mobilisées">
           <div className="grid sm:grid-cols-2 gap-4">
             {competencesDetail.map((c) => (
               <div
                 key={c.code}
-                className="glass rounded-xl p-4 transition-all duration-300 hover:border-[var(--accent)]/50"
+                className="glass rounded-xl p-4 transition-colors duration-200 hover:border-[var(--accent)]/50"
               >
                 <div className="flex items-baseline gap-3 mb-1">
                   <span className="text-[var(--accent)] font-bold text-sm">{c.code}</span>
@@ -166,12 +149,10 @@ export default function ProjetFicheClient({
           </div>
         </Bloc>
 
-        {/* Résultats */}
         <Bloc titre="Résultats">
           <p className="text-[var(--text-secondary)] leading-relaxed">{projet.resultats}</p>
         </Bloc>
 
-        {/* Difficultés / Apports */}
         {(projet.difficultes || projet.apports) && (
           <div className="grid md:grid-cols-2 gap-6">
             {projet.difficultes && (
@@ -187,7 +168,6 @@ export default function ProjetFicheClient({
           </div>
         )}
 
-        {/* Liens */}
         {projet.liens.length > 0 && (
           <Bloc titre="Liens">
             <div className="flex flex-wrap gap-3">
@@ -197,7 +177,7 @@ export default function ProjetFicheClient({
                   href={lien.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--bg-primary)] font-semibold rounded-lg transition-all duration-300"
+                  className="px-5 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--bg-primary)] font-semibold rounded-lg transition-colors duration-200"
                 >
                   {lien.label}
                 </a>
@@ -207,12 +187,11 @@ export default function ProjetFicheClient({
         )}
       </div>
 
-      {/* Pagination précédent / suivant */}
       <nav className="mt-12 grid sm:grid-cols-2 gap-4" aria-label="Navigation entre projets">
         {previous ? (
           <Link
             href={`${basePath}/projets/${previous.slug}`}
-            className="glass-strong rounded-2xl p-5 transition-all duration-300 hover:border-[var(--accent)]/50 hover:shadow-[0_0_20px_var(--accent-glow)]"
+            className="glass-strong rounded-2xl p-5 transition-colors duration-200 hover:border-[var(--accent)]/50"
           >
             <p className="text-xs uppercase tracking-wide text-[var(--text-muted)] mb-1">Précédent</p>
             <p className="font-semibold text-[var(--text-primary)]">
@@ -226,7 +205,7 @@ export default function ProjetFicheClient({
         {next ? (
           <Link
             href={`${basePath}/projets/${next.slug}`}
-            className="glass-strong rounded-2xl p-5 text-right transition-all duration-300 hover:border-[var(--accent)]/50 hover:shadow-[0_0_20px_var(--accent-glow)]"
+            className="glass-strong rounded-2xl p-5 text-right transition-colors duration-200 hover:border-[var(--accent)]/50"
           >
             <p className="text-xs uppercase tracking-wide text-[var(--text-muted)] mb-1">Suivant</p>
             <p className="font-semibold text-[var(--text-primary)]">
@@ -238,22 +217,16 @@ export default function ProjetFicheClient({
           <div />
         )}
       </nav>
-    </motion.article>
+    </article>
   );
 }
 
 function Bloc({ titre, children }: { titre: string; children: React.ReactNode }) {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="glass-strong rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:border-[var(--accent)]/50 hover:shadow-[0_0_20px_var(--accent-glow)]"
-    >
+    <section className="glass-strong rounded-2xl p-6 sm:p-8 transition-colors duration-200 hover:border-[var(--accent)]/50">
       <h2 className="text-xl md:text-2xl font-bold mb-4 text-[var(--text-primary)]">{titre}</h2>
       <div className="h-[3px] w-16 bg-[var(--accent)] mb-5" />
       {children}
-    </motion.section>
+    </section>
   );
 }

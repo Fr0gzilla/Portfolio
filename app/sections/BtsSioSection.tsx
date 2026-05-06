@@ -1,16 +1,8 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function BtsSioSection() {
   return (
-    <motion.section
+    <section
       id="bts"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true, amount: 0.1 }}
-      className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28"
+      className="fade-section max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[var(--text-primary)]">
         Qu&apos;est ce que le BTS SIO 🎓 ?
@@ -61,18 +53,9 @@ export default function BtsSioSection() {
               Option <span className="text-[var(--accent)]">SLAM</span>
             </h3>
 
-            <motion.span
-              initial={{ x: 0 }}
-              animate={{ x: [0, -4, 0, 4, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 2,
-                ease: "easeInOut",
-              }}
-              className="text-[var(--accent)] font-semibold whitespace-nowrap text-sm"
-            >
+            <span className="text-[var(--accent)] font-semibold whitespace-nowrap text-sm">
               👈 (la filière que j&apos;ai choisie)
-            </motion.span>
+            </span>
           </div>
 
           <p className="text-[var(--text-secondary)] leading-relaxed mt-3">
@@ -88,6 +71,6 @@ export default function BtsSioSection() {
           </ul>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

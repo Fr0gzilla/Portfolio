@@ -1,16 +1,8 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function AboutSection() {
   return (
-    <motion.section
+    <section
       id="about"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true, amount: 0.1 }}
-      className="max-w-5xl mx-auto px-4 sm:px-6 py-20 md:py-28"
+      className="fade-section max-w-5xl mx-auto px-4 sm:px-6 py-20 md:py-28"
     >
       <h2 className="text-3xl font-bold mb-6 text-center text-[var(--text-primary)]">
         À propos de moi
@@ -45,12 +37,12 @@ export default function AboutSection() {
         <div className="mt-10 flex justify-center">
           <a
             href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/cv`}
-            className="px-10 py-4 rounded-xl border border-[var(--accent)] text-[var(--accent)] text-xl font-semibold hover:bg-[var(--accent)] hover:text-[var(--bg-primary)] transition-all duration-300"
+            className="px-10 py-4 rounded-xl border border-[var(--accent)] text-[var(--accent)] text-xl font-semibold hover:bg-[var(--accent)] hover:text-[var(--bg-primary)] transition-colors duration-200"
           >
             CV
           </a>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

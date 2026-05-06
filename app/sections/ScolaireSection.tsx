@@ -1,16 +1,8 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function ScolaireSection() {
   return (
-    <motion.section
+    <section
       id="scolaire"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true, amount: 0.1 }}
-      className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-24"
+      className="fade-section max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-24"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[var(--text-primary)]">
         Mon Parcours Scolaire 🎓
@@ -20,14 +12,9 @@ export default function ScolaireSection() {
 
       <div className="flex flex-col gap-8">
         {/* BTS SIO */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -4 }}
-          className="glass-strong rounded-2xl p-6 sm:p-8 transition-all duration-300
-                     hover:border-[var(--accent)]/50 hover:shadow-[0_0_20px_var(--accent-glow)]"
+        <div
+          className="glass-strong rounded-2xl p-6 sm:p-8 transition-colors duration-200
+                     hover:border-[var(--accent)]/50"
         >
           <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">
             BTS SIO – Option SLAM 💻
@@ -42,17 +29,12 @@ export default function ScolaireSection() {
           <p className="text-[var(--text-secondary)] leading-relaxed">
             BTS Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métiers (SLAM). Formation orientée développement, conception d&apos;applications, bases de données, cybersécurité, et méthodologies DevOps.
           </p>
-        </motion.div>
+        </div>
 
         {/* BAC GENERAL */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -4 }}
-          className="glass-strong rounded-2xl p-6 sm:p-8 transition-all duration-300
-                     hover:border-[var(--accent)]/50 hover:shadow-[0_0_20px_var(--accent-glow)]"
+        <div
+          className="glass-strong rounded-2xl p-6 sm:p-8 transition-colors duration-200
+                     hover:border-[var(--accent)]/50"
         >
           <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">
             Baccalauréat Général 🎓
@@ -69,8 +51,8 @@ export default function ScolaireSection() {
           <p className="text-[var(--text-secondary)] leading-relaxed">
             Bac Général avec spécialités Physique-Chimie & NSI (Numérique et Sciences Informatiques), et option Mathématiques. Formation scientifique solide orientée vers l&apos;informatique, la logique et la résolution de problèmes.
           </p>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

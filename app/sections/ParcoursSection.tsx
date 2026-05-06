@@ -1,16 +1,8 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function ParcoursSection() {
   return (
-    <motion.section
+    <section
       id="parcours"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true, amount: 0.1 }}
-      className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-24"
+      className="fade-section max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-24"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[var(--text-primary)]">
         Mon Parcours Professionnel 👔
@@ -19,14 +11,9 @@ export default function ParcoursSection() {
 
       <div className="flex flex-col gap-8">
         {/* CARTE CAPGEMINI */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -4 }}
-          className="glass-strong rounded-2xl p-6 sm:p-8 transition-all duration-300
-                     hover:border-[var(--accent)]/50 hover:shadow-[0_0_20px_var(--accent-glow)]"
+        <div
+          className="glass-strong rounded-2xl p-6 sm:p-8 transition-colors duration-200
+                     hover:border-[var(--accent)]/50"
         >
           <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">
             Apprenti Développeur – Capgemini Technology Services 💼
@@ -54,17 +41,12 @@ export default function ParcoursSection() {
           <p className="text-[var(--text-secondary)] leading-relaxed">
             En mission chez un grand compte du secteur public, je participe au développement et à l&apos;évolution d&apos;outils internes en fonction des besoins métier, que ce soit pour des nouvelles fonctionnalités ou des correctifs. Je suis impliqué dans l&apos;ensemble du cycle projet, du cadrage à la mise en production, en passant par la conception et les tests. Je rédige également la documentation technique et utilisateur associée. Le travail s&apos;organise en méthode Scrum, avec des sprints et des cérémonies régulières.
           </p>
-        </motion.div>
+        </div>
 
         {/* CARTE VOILE */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -4 }}
-          className="glass-strong rounded-2xl p-6 sm:p-8 transition-all duration-300
-                     hover:border-[var(--accent)]/50 hover:shadow-[0_0_20px_var(--accent-glow)]"
+        <div
+          className="glass-strong rounded-2xl p-6 sm:p-8 transition-colors duration-200
+                     hover:border-[var(--accent)]/50"
         >
           <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">
             Moniteur de Voile ⛵
@@ -76,8 +58,8 @@ export default function ParcoursSection() {
           <p className="text-[var(--text-secondary)] leading-relaxed">
             Expérience dans un centre nautique breton : encadrement de séances, gestion du matériel, mise en sécurité du public et initiation à la pratique de la voile. Cette expérience m&apos;a appris la pédagogie, la responsabilité et la gestion de groupe.
           </p>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useRef, useCallback } from "react";
 import { projets, type Projet } from "../projets/data";
@@ -10,13 +9,9 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function ProjectsSection() {
   return (
-    <motion.section
+    <section
       id="projects"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true, amount: 0.1 }}
-      className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28"
+      className="fade-section max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[var(--text-primary)]">Projets</h2>
       <div className="h-[3px] w-24 bg-[var(--accent)] mb-10" />
@@ -26,7 +21,7 @@ export default function ProjectsSection() {
           <ProjetCarte key={projet.slug} projet={projet} fullWidth={i >= 2} />
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 }
 
@@ -47,16 +42,11 @@ function ProjetCarte({ projet, fullWidth }: { projet: Projet; fullWidth: boolean
   const externalLink = projet.liens.find((l) => l.url.startsWith("http"));
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -4 }}
+    <div
       onMouseEnter={projet.preview ? handleMouseEnter : undefined}
       onMouseLeave={projet.preview ? handleMouseLeave : undefined}
-      className={`group relative glass-strong rounded-2xl p-6 flex flex-col transition-all duration-300
-                  hover:border-[var(--accent)]/50 hover:shadow-[0_0_25px_5px_var(--accent-glow)]
+      className={`group relative glass-strong rounded-2xl p-6 flex flex-col transition-colors duration-200
+                  hover:border-[var(--accent)]/50
                   ${fullWidth ? "sm:col-span-2" : ""}`}
     >
       <h3 className="text-2xl font-bold mb-4 text-[var(--text-primary)]">
@@ -65,11 +55,10 @@ function ProjetCarte({ projet, fullWidth }: { projet: Projet; fullWidth: boolean
 
       {projet.preview && (
         <div
-          className="grid transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-          style={{
-            gridTemplateRows: hovered ? "1fr" : "0fr",
-            opacity: hovered ? 1 : 0,
-          }}
+          className={`grid transition-[grid-template-rows,opacity] duration-400 ease-out ${
+            hovered ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ gridTemplateRows: hovered ? "1fr" : "0fr" }}
         >
           <div className="overflow-hidden">
             <div className="rounded-xl overflow-hidden border border-[var(--accent)]/30 mb-4">
@@ -104,7 +93,7 @@ function ProjetCarte({ projet, fullWidth }: { projet: Projet; fullWidth: boolean
       <div className="mt-auto flex flex-wrap gap-3">
         <Link
           href={`${basePath}/projets/${projet.slug}`}
-          className="px-5 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--bg-primary)] font-semibold rounded-lg transition-all duration-300"
+          className="px-5 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--bg-primary)] font-semibold rounded-lg transition-colors duration-200"
         >
           Voir la fiche complète
         </Link>
@@ -113,12 +102,12 @@ function ProjetCarte({ projet, fullWidth }: { projet: Projet; fullWidth: boolean
             href={externalLink.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 glass text-[var(--accent)] hover:text-[var(--accent-hover)] font-semibold rounded-lg transition-all duration-300"
+            className="px-5 py-2.5 glass text-[var(--accent)] hover:text-[var(--accent-hover)] font-semibold rounded-lg transition-colors duration-200"
           >
             {externalLink.label}
           </a>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }

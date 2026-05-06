@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import ThemeToggleButton from "./ThemeToggleButton";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -43,24 +42,38 @@ function PdfIcon() {
 export default function Navbar() {
   const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
+  // On garde la dernière valeur connue dans une ref pour éviter les setState inutiles
+  // (qui re-rendent toute la navbar à chaque scroll, même sans changement).
+  const activeRef = useRef("home");
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     let rafId: number | null = null;
+    // Cache des éléments du DOM : on évite document.getElementById() à chaque scroll.
+    let cached: { id: string; el: HTMLElement }[] = [];
+
+    const refreshCache = () => {
+      cached = links
+        .map((l) => ({ id: l.id, el: document.getElementById(l.id) }))
+        .filter((x): x is { id: string; el: HTMLElement } => x.el !== null);
+    };
 
     const update = () => {
       rafId = null;
       const scrollPos = window.scrollY + window.innerHeight / 2;
 
-      for (const link of links) {
-        const element = document.getElementById(link.id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const top = rect.top + window.scrollY;
-          const bottom = top + element.offsetHeight;
+      for (const { id, el } of cached) {
+        const rect = el.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        const bottom = top + el.offsetHeight;
 
-          if (scrollPos >= top && scrollPos <= bottom) {
-            setActive(link.id);
+        if (scrollPos >= top && scrollPos <= bottom) {
+          if (activeRef.current !== id) {
+            activeRef.current = id;
+            setActive(id);
           }
+          break; // une seule section active à la fois
         }
       }
     };
@@ -71,9 +84,17 @@ export default function Navbar() {
       }
     };
 
+    refreshCache();
+    // Si la page est rendue dans /projets ou autre, on recale au montage ; sinon les ids
+    // de section ne sont pas encore dans le DOM et le cache reste vide jusqu'au scroll.
+    update();
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", refreshCache, { passive: true });
+
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", refreshCache);
       if (rafId !== null) window.cancelAnimationFrame(rafId);
     };
   }, []);
@@ -99,7 +120,7 @@ export default function Navbar() {
             <a
               key={link.id}
               href={`#${link.id}`}
-              className={`px-3 py-2 text-sm rounded-lg transition-all duration-200 ${
+              className={`px-3 py-2 text-sm rounded-lg transition-colors ${
                 active === link.id
                   ? "text-[var(--accent)] bg-[var(--accent)]/10 font-semibold"
                   : "text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"
@@ -118,7 +139,7 @@ export default function Navbar() {
             aria-label="Ouvrir le tableau de synthèse"
             className="hidden md:inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg
                        border border-[var(--accent)] text-[var(--accent)]
-                       hover:bg-[var(--accent)] hover:text-[var(--bg-primary)] transition-all duration-300"
+                       hover:bg-[var(--accent)] hover:text-[var(--bg-primary)] transition-colors"
           >
             <PdfIcon />
             <span>Tableau de synthèse</span>
@@ -161,46 +182,37 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden glass"
-          >
-            <div className="px-4 py-4 flex flex-col gap-1">
-              {links.map((link) => (
-                <a
-                  key={link.id}
-                  href={`#${link.id}`}
-                  onClick={handleLinkClick}
-                  className={`px-4 py-3 rounded-lg text-sm transition-all duration-200 ${
-                    active === link.id
-                      ? "text-[var(--accent)] bg-[var(--accent)]/10 font-semibold"
-                      : "text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ))}
-              {/* Bouton tableau de synthèse (mobile) */}
+      {/* Mobile menu — animation CSS pure plutôt que Framer AnimatePresence */}
+      {menuOpen && (
+        <nav className="lg:hidden overflow-hidden glass mobile-menu-open">
+          <div className="px-4 py-4 flex flex-col gap-1">
+            {links.map((link) => (
               <a
-                href={tableauSyntheseUrl}
+                key={link.id}
+                href={`#${link.id}`}
                 onClick={handleLinkClick}
-                className="mt-2 px-4 py-3 rounded-lg text-sm font-semibold border border-[var(--accent)]
-                           text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg-primary)]
-                           transition-all duration-300 flex items-center gap-2"
+                className={`px-4 py-3 rounded-lg text-sm transition-colors ${
+                  active === link.id
+                    ? "text-[var(--accent)] bg-[var(--accent)]/10 font-semibold"
+                    : "text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"
+                }`}
               >
-                <PdfIcon />
-                <span>Tableau de synthèse</span>
+                {link.label}
               </a>
-            </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
+            ))}
+            <a
+              href={tableauSyntheseUrl}
+              onClick={handleLinkClick}
+              className="mt-2 px-4 py-3 rounded-lg text-sm font-semibold border border-[var(--accent)]
+                         text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg-primary)]
+                         transition-colors flex items-center gap-2"
+            >
+              <PdfIcon />
+              <span>Tableau de synthèse</span>
+            </a>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

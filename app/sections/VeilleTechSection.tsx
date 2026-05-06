@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { sujetsVeille } from "./veilleData";
 
@@ -8,13 +7,9 @@ export default function VeilleTechSection() {
   const [openId, setOpenId] = useState<string | null>(sujetsVeille[0]?.id ?? null);
 
   return (
-    <motion.section
+    <section
       id="veille"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true, amount: 0.1 }}
-      className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28"
+      className="fade-section max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[var(--text-primary)]">
         Veille technologique <span aria-hidden="true">📡</span>
@@ -33,13 +28,7 @@ export default function VeilleTechSection() {
       </p>
 
       {/* Outils & méthode */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="glass-strong rounded-2xl p-6 sm:p-8 mb-10 transition-all duration-300 hover:border-[var(--accent)]/50 hover:shadow-[0_0_20px_var(--accent-glow)]"
-      >
+      <div className="glass-strong rounded-2xl p-6 sm:p-8 mb-10 transition-colors duration-200 hover:border-[var(--accent)]/50">
         <h3 className="text-xl md:text-2xl font-bold mb-4 text-[var(--text-primary)]">
           Outils & méthode
         </h3>
@@ -72,7 +61,7 @@ export default function VeilleTechSection() {
             </p>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Sujets de veille (cartes dépliables) */}
       <div className="flex flex-col gap-4">
@@ -80,13 +69,9 @@ export default function VeilleTechSection() {
           const isOpen = openId === sujet.id;
           const panelId = `veille-panel-${sujet.id}`;
           return (
-            <motion.div
+            <div
               key={sujet.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="glass-strong rounded-2xl overflow-hidden transition-all duration-300 hover:border-[var(--accent)]/50"
+              className="glass-strong rounded-2xl overflow-hidden transition-colors duration-200 hover:border-[var(--accent)]/50"
             >
               <button
                 type="button"
@@ -114,11 +99,8 @@ export default function VeilleTechSection() {
               </button>
 
               {isOpen && (
-                <motion.div
+                <div
                   id={panelId}
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  transition={{ duration: 0.3 }}
                   className="px-6 pb-6 border-t border-[var(--card-border)]"
                 >
                   <div className="grid md:grid-cols-2 gap-6 pt-6">
@@ -181,7 +163,7 @@ export default function VeilleTechSection() {
                         {sujet.articles.map((art) => (
                           <li
                             key={art.id}
-                            className="glass rounded-xl p-4 transition-all duration-300 hover:border-[var(--accent)]/50"
+                            className="glass rounded-xl p-4 transition-colors duration-200 hover:border-[var(--accent)]/50"
                           >
                             <div className="flex items-baseline justify-between gap-2 flex-wrap mb-1">
                               <a
@@ -214,12 +196,12 @@ export default function VeilleTechSection() {
                       </ul>
                     )}
                   </div>
-                </motion.div>
+                </div>
               )}
-            </motion.div>
+            </div>
           );
         })}
       </div>
-    </motion.section>
+    </section>
   );
 }

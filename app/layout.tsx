@@ -1,10 +1,10 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ThemeProvider from "./components/ThemeProvider";
+import ThemeProvider, { themeInitScript } from "./components/ThemeProvider";
 import BackgroundGradient from "./components/BackgroundGradient";
 import ScrollToTop from "./components/ScrollToTop";
-import IntroAnimation from "./components/IntroAnimation";
+import FadeInProvider from "./components/FadeInProvider";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -38,16 +38,20 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className="dark" suppressHydrationWarning>
-      <body className="min-h-screen transition-colors duration-300">
+    <html lang="fr" suppressHydrationWarning>
+      <head>
+        {/* Pose la classe de thème AVANT le rendu pour éviter le flash et le blocage du tree. */}
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="min-h-screen">
         <ThemeProvider>
-          <IntroAnimation>
+          <FadeInProvider>
             <BackgroundGradient />
             <Navbar />
             <main className="pt-20">{children}</main>
             <Footer />
             <ScrollToTop />
-          </IntroAnimation>
+          </FadeInProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,25 +1,31 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
 
 export default function ThemeToggleButton() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <motion.button
+    <button
+      type="button"
       onClick={toggleTheme}
-      whileTap={{ scale: 0.9 }}
-      className="p-2 rounded-lg glass hover:bg-[var(--accent)]/20 transition-colors"
-      aria-label="Toggle theme"
+      className="theme-toggle p-2 rounded-lg glass hover:bg-[var(--accent)]/20 transition-colors"
+      aria-label="Changer de thème"
     >
-      <motion.div
-        initial={false}
-        animate={{ rotate: theme === "dark" ? 0 : 180 }}
-        transition={{ duration: 0.3 }}
-      >
+      <span className={`theme-toggle-icon ${theme === "dark" ? "is-dark" : "is-light"}`}>
         {theme === "dark" ? (
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <circle cx="12" cy="12" r="5" />
             <line x1="12" y1="1" x2="12" y2="3" />
             <line x1="12" y1="21" x2="12" y2="23" />
@@ -31,11 +37,22 @@ export default function ThemeToggleButton() {
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
           </svg>
         ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
         )}
-      </motion.div>
-    </motion.button>
+      </span>
+    </button>
   );
 }
