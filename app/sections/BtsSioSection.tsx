@@ -6,10 +6,10 @@ export default function BtsSioSection() {
   return (
     <motion.section
       id="bts"
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true, margin: "-80px" }}
       className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[var(--text-primary)]">

@@ -12,10 +12,10 @@ export default function ProjectsSection() {
   return (
     <motion.section
       id="projects"
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true, margin: "-80px" }}
       className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[var(--text-primary)]">Projets</h2>
@@ -76,6 +76,8 @@ function ProjetCarte({ projet, fullWidth }: { projet: Projet; fullWidth: boolean
               <img
                 src={projet.preview}
                 alt={`Aperçu de l'application ${projet.titre}`}
+                loading="lazy"
+                decoding="async"
                 className="w-full rounded-xl"
               />
             </div>

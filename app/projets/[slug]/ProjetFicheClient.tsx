@@ -79,6 +79,8 @@ export default function ProjetFicheClient({
           <img
             src={projet.preview}
             alt={`Aperçu de l'application ${projet.titre}`}
+            loading="lazy"
+            decoding="async"
             className="w-full h-auto"
           />
         </motion.div>

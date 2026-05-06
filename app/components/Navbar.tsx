@@ -45,7 +45,10 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
+    let rafId: number | null = null;
+
+    const update = () => {
+      rafId = null;
       const scrollPos = window.scrollY + window.innerHeight / 2;
 
       for (const link of links) {
@@ -62,8 +65,17 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const onScroll = () => {
+      if (rafId === null) {
+        rafId = window.requestAnimationFrame(update);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafId !== null) window.cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const handleLinkClick = () => {

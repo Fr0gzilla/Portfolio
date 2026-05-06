@@ -82,24 +82,24 @@ body {
 
 .glass {
   background: var(--glass-bg);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
   box-shadow: 0 8px 32px var(--glass-shadow);
 }
 
 .glass-strong {
   background: var(--card-bg);
-  -webkit-backdrop-filter: blur(24px);
-  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border: 1px solid var(--card-border);
   box-shadow: 0 8px 32px var(--glass-shadow);
 }
 
 .glass-nav {
   background: var(--nav-bg);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--glass-border);
 }
 
@@ -120,8 +120,10 @@ body {
   height: 600px;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.5;
-  animation: blobFloat 20s ease-in-out infinite alternate;
+  opacity: 0.4;
+  animation: blobFloat 40s ease-in-out infinite alternate;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .bg-gradient-animated::before {
@@ -143,12 +145,13 @@ body {
   height: 500px;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.4;
+  opacity: 0.3;
   background: var(--bg-gradient-3);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: blobFloat 25s ease-in-out infinite alternate-reverse;
+  animation: blobFloat 50s ease-in-out infinite alternate-reverse;
+  will-change: transform;
 }
 
 @keyframes blobFloat {
@@ -283,4 +286,24 @@ body {
 .social-icons a[data-social="discord"] .filled,
 .social-icons a[data-social="discord"] ~ .tooltip {
   background-color: #7289da;
+}
+
+/* ======================== REDUCED MOTION ======================== */
+/* Désactive les animations coûteuses pour les utilisateurs qui le demandent
+   (accessibilité + perf sur appareils faibles). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .bg-gradient-animated::before,
+  .bg-gradient-animated::after,
+  .bg-blob-3 {
+    animation: none !important;
+  }
 }

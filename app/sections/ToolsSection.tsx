@@ -16,10 +16,10 @@ export default function ToolsSection() {
   return (
     <motion.section
       id="tools"
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true, margin: "-80px" }}
       className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[var(--text-primary)]">
@@ -45,7 +45,7 @@ export default function ToolsSection() {
                        hover:shadow-[0_0_20px_var(--accent-glow)]
                        transition duration-300"
           >
-            <img src={tool.img} alt={`Logo ${tool.name}`} className="h-16 w-16 md:h-20 md:w-20 object-contain mb-3" />
+            <img src={tool.img} alt={`Logo ${tool.name}`} loading="lazy" decoding="async" className="h-16 w-16 md:h-20 md:w-20 object-contain mb-3" />
             <p className="font-semibold text-center text-sm md:text-base text-[var(--text-primary)]">{tool.name}</p>
           </motion.div>
         ))}
