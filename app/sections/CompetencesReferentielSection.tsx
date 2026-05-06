@@ -7,7 +7,18 @@ import {
   competencesReferentiel,
   getProjetsByCompetence,
   type CompetenceReferentiel,
+  type Projet,
 } from "../projets/data";
+
+// Seules les réalisations professionnelles validées dans le tableau de synthèse
+// (Annexe 6) sont mobilisables pour le mapping référentiel ↔ réalisations.
+const SLUGS_BTS = ["cyber-hoot", "cloudinventory-v2"] as const;
+
+function getRealisationsBts(code: string): Projet[] {
+  return getProjetsByCompetence(code).filter((p) =>
+    SLUGS_BTS.includes(p.slug as (typeof SLUGS_BTS)[number])
+  );
+}
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -49,9 +60,12 @@ export default function CompetencesReferentielSection() {
 
       <p className="text-[var(--text-secondary)] leading-relaxed max-w-4xl mb-8">
         Cette section met en correspondance les compétences du référentiel BTS SIO
-        (blocs 1, 2 SLAM et 3 cybersécurité) avec mes réalisations professionnelles, scolaires
-        et personnelles. Chaque badge de réalisation pointe vers la fiche détaillée du projet
-        dans laquelle la compétence a été mobilisée.
+        (blocs 1, 2 SLAM et 3 cybersécurité) avec mes deux réalisations professionnelles
+        retenues dans le tableau de synthèse&nbsp;:{" "}
+        <span className="text-[var(--accent)] font-semibold">Cyber-hoot</span> et{" "}
+        <span className="text-[var(--accent)] font-semibold">CloudInventory</span>.
+        Chaque badge pointe vers la fiche détaillée du projet dans laquelle la compétence
+        a été mobilisée.
       </p>
 
       <div
@@ -93,7 +107,7 @@ export default function CompetencesReferentielSection() {
           </thead>
           <tbody>
             {competencesAffichees.map((c) => {
-              const projetsLies = getProjetsByCompetence(c.code);
+              const projetsLies = getRealisationsBts(c.code);
               return (
                 <tr
                   key={c.code}
