@@ -78,9 +78,12 @@ body {
   /* On ne transitionne plus que la couleur de texte/fond ; jamais "transition: all". */
 }
 
-/* Isole les sections : un repaint dans une section ne propage pas hors de celle-ci. */
+/* Isole les sections (layout + style seulement).
+   On RETIRE `paint` qui crée un stacking context isolé : le bg-static (z-index: -1)
+   serait masqué sous chaque section. Layout/style suffit pour les bénéfices de perf
+   sans casser le z-index global. */
 section {
-  contain: layout paint style;
+  contain: layout style;
 }
 
 /* ======================== STATIC BACKGROUND ======================== */
@@ -105,7 +108,9 @@ section {
 }
 
 /* ======================== GLASSMORPHISM ======================== */
-/* Blurs réduits ; on tente le compositor via translateZ(0). */
+/* Blurs réduits.
+   On NE force PAS le promote-to-layer (translateZ(0)) sur les cartes : avec ~30 cartes,
+   ça créait autant de layers GPU et saturait la RAM GPU sur les machines modestes. */
 
 .glass {
   background: var(--glass-bg);
@@ -113,7 +118,6 @@ section {
   backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
   box-shadow: 0 8px 32px var(--glass-shadow);
-  transform: translateZ(0);
 }
 
 .glass-strong {
@@ -122,7 +126,6 @@ section {
   backdrop-filter: blur(12px);
   border: 1px solid var(--card-border);
   box-shadow: 0 8px 32px var(--glass-shadow);
-  transform: translateZ(0);
 }
 
 .glass-nav {
@@ -181,27 +184,22 @@ section {
 }
 
 /* ======================== ENTRÉE EN SCÈNE DES SECTIONS ======================== */
-/* Approche : les sections sont visibles au chargement (pas de FOUC).
-   Un IntersectionObserver léger ajoute la classe `.is-visible` pour déclencher
-   une animation CSS courte. Pas de Framer Motion par section. */
+/* Principe (révisé) : les sections sont VISIBLES par défaut. C'est le JS qui décide
+   d'animer leur entrée en ajoutant `.fade-section` quand le hook se monte (cf.
+   useFadeInOnScroll). Si JS lent ou désactivé, le contenu reste affiché. */
 
-.fade-section {
-  opacity: 1;
-  /* On retire le mouvement initial pour éviter le "trou" au scroll rapide.
-     Les sections sont juste à leur place. */
-}
-
+/* Si le hook a posé la classe `js-fade-ready` sur <html>, on cache à nouveau les
+   sections non-visibles pour qu'elles puissent jouer l'animation d'entrée. */
 @media (prefers-reduced-motion: no-preference) {
-  .fade-section {
+  html.js-fade-ready .fade-section:not(.is-visible) {
     opacity: 0;
     transform: translateY(16px);
-    transition: opacity 0.45s ease-out, transform 0.45s ease-out;
-    will-change: opacity, transform;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
   }
-  .fade-section.is-visible,
-  .fade-section.always-visible {
+  html.js-fade-ready .fade-section.is-visible {
     opacity: 1;
     transform: none;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
   }
 }
 
