@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggleButton from "./ThemeToggleButton";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const tableauSyntheseUrl = `${basePath}/tableau-synthese.pdf`;
+
 const links = [
   { id: "home", label: "Accueil" },
   { id: "about", label: "À propos" },
@@ -17,6 +20,26 @@ const links = [
   { id: "scolaire", label: "Scolaire" },
   { id: "contact", label: "Contact" },
 ];
+
+function PdfIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+    </svg>
+  );
+}
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
@@ -77,7 +100,21 @@ export default function Navbar() {
         </nav>
 
         {/* Right side */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Bouton tableau de synthèse PDF (desktop) */}
+          <a
+            href={tableauSyntheseUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ouvrir le tableau de synthèse au format PDF (nouvel onglet)"
+            className="hidden md:inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg
+                       border border-[var(--accent)] text-[var(--accent)]
+                       hover:bg-[var(--accent)] hover:text-[var(--bg-primary)] transition-all duration-300"
+          >
+            <PdfIcon />
+            <span>Tableau de synthèse</span>
+          </a>
+
           <ThemeToggleButton />
 
           {/* Hamburger */}
@@ -140,6 +177,19 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              {/* Bouton tableau de synthèse PDF (mobile) */}
+              <a
+                href={tableauSyntheseUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleLinkClick}
+                className="mt-2 px-4 py-3 rounded-lg text-sm font-semibold border border-[var(--accent)]
+                           text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg-primary)]
+                           transition-all duration-300 flex items-center gap-2"
+              >
+                <PdfIcon />
+                <span>Tableau de synthèse (PDF)</span>
+              </a>
             </div>
           </motion.nav>
         )}
