@@ -28,7 +28,7 @@ export default function ToolsSection() {
       <div className="h-[3px] w-24 bg-[var(--accent)] mb-10" />
 
       <p className="text-lg text-[var(--text-secondary)] leading-relaxed max-w-4xl mb-14">
-        Toutes ces connaissances ont ete acquises...
+        Voici les outils et logiciels que j&apos;utilise au quotidien dans le cadre de mes projets et de mon alternance.
       </p>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-10">
@@ -45,7 +45,7 @@ export default function ToolsSection() {
                        hover:shadow-[0_0_20px_var(--accent-glow)]
                        transition duration-300"
           >
-            <img src={tool.img} alt={tool.name} className="h-16 w-16 md:h-20 md:w-20 object-contain mb-3" />
+            <img src={tool.img} alt={`Logo ${tool.name}`} className="h-16 w-16 md:h-20 md:w-20 object-contain mb-3" />
             <p className="font-semibold text-center text-sm md:text-base text-[var(--text-primary)]">{tool.name}</p>
           </motion.div>
         ))}

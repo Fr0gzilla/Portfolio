@@ -8,8 +8,11 @@ const links = [
   { id: "home", label: "Accueil" },
   { id: "about", label: "À propos" },
   { id: "bts", label: "BTS SIO" },
+  { id: "competences-ref", label: "Compétences SLAM" },
   { id: "skills", label: "Compétences" },
+  { id: "tools", label: "Outils" },
   { id: "projects", label: "Projets" },
+  { id: "veille", label: "Veille" },
   { id: "parcours", label: "Parcours Pro" },
   { id: "scolaire", label: "Scolaire" },
   { id: "contact", label: "Contact" },
@@ -79,6 +82,7 @@ export default function Navbar() {
 
           {/* Hamburger */}
           <button
+            type="button"
             className="lg:hidden p-2 rounded-lg hover:bg-[var(--accent)]/10 transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"

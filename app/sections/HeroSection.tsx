@@ -58,6 +58,7 @@ export default function HeroSection() {
 
       {/* Scroll indicator */}
       <motion.div
+        aria-label="Indicateur de défilement"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5, duration: 1 }}

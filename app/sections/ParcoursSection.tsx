@@ -42,8 +42,9 @@ export default function ParcoursSection() {
             À mon arrivée chez Capgemini, j&apos;ai suivi un parcours d&apos;intégration comprenant plusieurs formations internes. J&apos;ai notamment été formé sur Terraform pour la gestion d&apos;infrastructure as code, ainsi que sur Ansible pour l&apos;automatisation de configurations. Durant cette période, j&apos;ai également obtenu la certification SAFe, qui m&apos;a permis de me familiariser avec les pratiques agiles à l&apos;échelle.
           </p>
 
+          {/* TODO: valider mention publique du client avec tuteur Capgemini avant remise en clair. */}
           <h4 className="text-xl font-bold mb-1 text-[var(--text-primary)]">
-            Développeur – Mission DGA MI <span className="text-sm font-normal text-[var(--text-muted)]">(via Capgemini)</span>
+            Développeur – Mission grand compte secteur public <span className="text-sm font-normal text-[var(--text-muted)]">(via Capgemini)</span>
           </h4>
 
           <p className="text-[var(--accent)] font-semibold mb-2">
@@ -51,7 +52,7 @@ export default function ParcoursSection() {
           </p>
 
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            En mission à la DGA MI, je participe au développement et à l&apos;évolution d&apos;outils internes en fonction des besoins métier, que ce soit pour des nouvelles fonctionnalités ou des correctifs. Je suis impliqué dans l&apos;ensemble du cycle projet, du cadrage à la mise en production, en passant par la conception et les tests. Je rédige également la documentation technique et utilisateur associée. Le travail s&apos;organise en méthode Scrum, avec des sprints et des cérémonies régulières.
+            En mission chez un grand compte du secteur public, je participe au développement et à l&apos;évolution d&apos;outils internes en fonction des besoins métier, que ce soit pour des nouvelles fonctionnalités ou des correctifs. Je suis impliqué dans l&apos;ensemble du cycle projet, du cadrage à la mise en production, en passant par la conception et les tests. Je rédige également la documentation technique et utilisateur associée. Le travail s&apos;organise en méthode Scrum, avec des sprints et des cérémonies régulières.
           </p>
         </motion.div>
 

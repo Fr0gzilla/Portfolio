@@ -51,7 +51,7 @@ export default function SkillsSection() {
                        hover:shadow-[0_0_20px_var(--accent-glow)]
                        transition duration-300"
           >
-            <img src={tech.img} alt={tech.name} className="h-16 w-16 md:h-20 md:w-20 object-contain mb-3" />
+            <img src={tech.img} alt={`Logo ${tech.name}`} className="h-16 w-16 md:h-20 md:w-20 object-contain mb-3" />
             <p className="font-semibold text-center text-sm md:text-base text-[var(--text-primary)]">{tech.name}</p>
           </motion.div>
         ))}
