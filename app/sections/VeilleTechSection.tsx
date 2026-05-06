@@ -22,10 +22,13 @@ export default function VeilleTechSection() {
       <div className="h-[3px] w-24 bg-[var(--accent)] mb-8" />
 
       <p className="text-[var(--text-secondary)] leading-relaxed max-w-4xl mb-10">
-        Faire de la veille fait partie intégrante du métier de développeur. J&apos;ai mis en place
-        une routine de veille structurée autour de trois axes complémentaires : sécurité
-        applicative, écosystème front moderne et DevSecOps. Mon objectif est moins de tout lire
-        que de garder une vue d&apos;ensemble cohérente pour pouvoir argumenter mes choix techniques.
+        Faire de la veille fait partie intégrante du métier de développeur, particulièrement
+        en cybersécurité où le paysage évolue chaque semaine. J&apos;ai structuré ma veille autour
+        de trois axes complémentaires : <span className="text-[var(--accent)] font-semibold">sécurité
+        applicative web</span>, <span className="text-[var(--accent)] font-semibold">supply chain
+        logicielle</span> et <span className="text-[var(--accent)] font-semibold">sécurité de l&apos;IA
+        générative</span>. Mon objectif est moins de tout lire que de garder une vue d&apos;ensemble
+        cohérente pour pouvoir argumenter mes choix techniques.
       </p>
 
       {/* Outils & méthode */}
@@ -87,7 +90,7 @@ export default function VeilleTechSection() {
               <button
                 type="button"
                 onClick={() => setOpenId(isOpen ? null : sujet.id)}
-                aria-expanded={isOpen}
+                aria-expanded={isOpen ? "true" : "false"}
                 aria-controls={panelId}
                 className="w-full text-left p-6 flex items-start justify-between gap-4 hover:bg-[var(--accent)]/5 transition-colors"
               >

@@ -29,16 +29,18 @@ export type SujetVeille = {
 export const sujetsVeille: SujetVeille[] = [
   {
     id: "secu-applicative",
-    titre: "Sécurité applicative & OWASP",
+    titre: "Sécurité applicative web (OWASP Top 10)",
     emoji: "🔐",
     description:
       "Suivi des vulnérabilités web les plus répandues, des CVE marquantes et des bonnes pratiques de secure coding (OWASP Top 10, ASVS).",
     motivations:
-      "Mes projets touchent à la fois au web (Beatshelf, Cyber-Hoot) et à des outils internes en alternance (CloudInventory v2). Suivre l'actualité de la sécurité applicative me permet d'adopter les bons réflexes dès la conception.",
+      "Sur Cyber-hoot j'ai mis en œuvre des contre-mesures concrètes (CSP avec nonces, hachage PBKDF2, jetons signés itsdangerous, pare-feu UFW, scan VirusTotal des uploads, en-têtes de sécurité). Cette veille me permet d'avoir des arguments à jour pour justifier ces choix et anticiper les évolutions du référentiel OWASP.",
     sources: [
-      { nom: "ANSSI – Avis et alertes CERT-FR", url: "https://www.cert.ssi.gouv.fr/", type: "RSS" },
+      { nom: "ANSSI – CERT-FR (avis et alertes)", url: "https://www.cert.ssi.gouv.fr/", type: "RSS" },
       { nom: "OWASP Foundation", url: "https://owasp.org/", type: "Site" },
+      { nom: "PortSwigger Web Security Blog", url: "https://portswigger.net/blog", type: "RSS" },
       { nom: "The Hacker News", url: "https://thehackernews.com/", type: "RSS" },
+      { nom: "Le Comptoir Sécu (FR)", url: "https://www.comptoirsecu.fr/", type: "Podcast" },
     ],
     frequence: "Hebdomadaire",
     outils: ["Feedly", "Mastodon (listes infosec)"],
@@ -46,38 +48,42 @@ export const sujetsVeille: SujetVeille[] = [
     articles: [],
   },
   {
-    id: "frameworks-js",
-    titre: "Évolution des frameworks JS modernes",
-    emoji: "⚛️",
+    id: "supply-chain",
+    titre: "Sécurité de la supply chain logicielle",
+    emoji: "📦",
     description:
-      "Veille sur Next.js, React et l'écosystème front (TypeScript, build tools) afin de garder Beatshelf et le portfolio à jour des bonnes pratiques.",
+      "Veille sur les attaques visant la chaîne de production logicielle : packages npm/pip compromis, signatures d'artefacts, SBOM, sécurité des pipelines CI/CD.",
     motivations:
-      "Je travaille quotidiennement avec React et Next.js. Comprendre les évolutions (App Router, Server Components, Turbopack) m'évite de prendre des décisions techniques obsolètes.",
+      "CloudInventory et Cyber-hoot dépendent de dizaines de paquets Python (Flask, SQLAlchemy, requests, Werkzeug…) et d'images Docker tierces. Suivre ce thème m'aide à évaluer le risque réel de mes dépendances et à proposer des évolutions concrètes (scan, signature, SBOM) au sein de mon alternance.",
     sources: [
-      { nom: "Next.js Blog", url: "https://nextjs.org/blog", type: "Site" },
-      { nom: "React Blog", url: "https://react.dev/blog", type: "Site" },
-      { nom: "This Week in React (newsletter)", url: "https://thisweekinreact.com/", type: "Newsletter" },
+      { nom: "Snyk Vulnerability Blog", url: "https://snyk.io/blog/", type: "RSS" },
+      { nom: "GitHub Security Blog", url: "https://github.blog/security/", type: "RSS" },
+      { nom: "Sigstore Blog", url: "https://blog.sigstore.dev/", type: "RSS" },
+      { nom: "Sonatype – State of the Software Supply Chain", url: "https://www.sonatype.com/resources/", type: "Newsletter" },
+      { nom: "Risky Business", url: "https://risky.biz/", type: "Podcast" },
     ],
     frequence: "Hebdomadaire",
-    outils: ["Newsletter (e-mail)", "Feedly"],
+    outils: ["Feedly", "Pocket Casts (podcasts)"],
     // TODO: ajouter au moins 3 articles synthétisés (titre, source, date, résumé en mes mots).
     articles: [],
   },
   {
-    id: "devsecops",
-    titre: "DevSecOps & supply chain security",
-    emoji: "🔁",
+    id: "ia-llm",
+    titre: "Sécurité de l'IA générative et des LLM",
+    emoji: "🤖",
     description:
-      "Suivi des bonnes pratiques de sécurité en CI/CD : SBOM, scan de dépendances, signature d'artefacts, sécurité des pipelines.",
+      "Suivi des risques propres aux applications intégrant un LLM : prompt injection, RAG poisoning, jailbreaks, OWASP LLM Top 10, MITRE ATLAS, encadrement réglementaire (EU AI Act).",
     motivations:
-      "Mon alternance chez Capgemini m'expose à des pipelines GitLab CI et à la mise en production. Mieux comprendre la sécurité du cycle de vie m'aide à proposer des évolutions concrètes.",
+      "HarmonyMind utilisera des embeddings et viendra se brancher sur Beatshelf. Avant d'industrialiser, je veux comprendre les attaques possibles (prompt injection, fuite de données, empoisonnement de la base vectorielle) et les bonnes pratiques émergentes pour les contrer.",
     sources: [
-      { nom: "Snyk Blog", url: "https://snyk.io/blog/", type: "Site" },
-      { nom: "GitLab Security", url: "https://about.gitlab.com/blog/categories/security/", type: "Site" },
-      { nom: "DevSecOps Podcast", url: "https://soundcloud.com/devsecops-podcast-series", type: "Podcast" },
+      { nom: "OWASP GenAI / LLM Top 10", url: "https://genai.owasp.org/", type: "Site" },
+      { nom: "Simon Willison's Weblog", url: "https://simonwillison.net/", type: "RSS" },
+      { nom: "Lakera Blog (red teaming LLM)", url: "https://www.lakera.ai/blog", type: "RSS" },
+      { nom: "Anthropic – Research & Safety", url: "https://www.anthropic.com/research", type: "RSS" },
+      { nom: "MITRE ATLAS", url: "https://atlas.mitre.org/", type: "Site" },
     ],
     frequence: "Bimensuelle",
-    outils: ["Feedly", "Podcasts (Pocket Casts)"],
+    outils: ["Feedly", "Newsletter (e-mail)"],
     // TODO: ajouter au moins 3 articles synthétisés (titre, source, date, résumé en mes mots).
     articles: [],
   },
