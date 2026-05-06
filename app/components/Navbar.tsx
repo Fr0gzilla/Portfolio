@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggleButton from "./ThemeToggleButton";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-const tableauSyntheseUrl = `${basePath}/tableau-synthese.pdf`;
+const tableauSyntheseUrl = `${basePath}/synthese`;
 
 const links = [
   { id: "home", label: "Accueil" },
@@ -101,12 +101,10 @@ export default function Navbar() {
 
         {/* Right side */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Bouton tableau de synthèse PDF (desktop) */}
+          {/* Bouton tableau de synthèse (desktop) */}
           <a
             href={tableauSyntheseUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Ouvrir le tableau de synthèse au format PDF (nouvel onglet)"
+            aria-label="Ouvrir le tableau de synthèse"
             className="hidden md:inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg
                        border border-[var(--accent)] text-[var(--accent)]
                        hover:bg-[var(--accent)] hover:text-[var(--bg-primary)] transition-all duration-300"
@@ -177,18 +175,16 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              {/* Bouton tableau de synthèse PDF (mobile) */}
+              {/* Bouton tableau de synthèse (mobile) */}
               <a
                 href={tableauSyntheseUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 onClick={handleLinkClick}
                 className="mt-2 px-4 py-3 rounded-lg text-sm font-semibold border border-[var(--accent)]
                            text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg-primary)]
                            transition-all duration-300 flex items-center gap-2"
               >
                 <PdfIcon />
-                <span>Tableau de synthèse (PDF)</span>
+                <span>Tableau de synthèse</span>
               </a>
             </div>
           </motion.nav>
