@@ -11,7 +11,6 @@ const links = [
   { id: "home", label: "Accueil" },
   { id: "about", label: "À propos" },
   { id: "bts", label: "BTS SIO" },
-  { id: "competences-ref", label: "Compétences SLAM" },
   { id: "skills", label: "Compétences" },
   { id: "tools", label: "Outils" },
   { id: "projects", label: "Projets" },

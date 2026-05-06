@@ -1,5 +1,5 @@
 // Source de vérité unique pour les projets et le référentiel BTS SIO SLAM.
-// Utilisée par : ProjectsSection (home), /projets, /projets/[slug], CompetencesReferentielSection.
+// Utilisée par : ProjectsSection (home), /projets, /projets/[slug].
 
 export type Projet = {
   slug: string;
