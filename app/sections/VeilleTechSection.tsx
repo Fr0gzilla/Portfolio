@@ -25,10 +25,11 @@ export default function VeilleTechSection() {
         Faire de la veille fait partie intégrante du métier de développeur, particulièrement
         en cybersécurité où le paysage évolue chaque semaine. J&apos;ai structuré ma veille autour
         de trois axes complémentaires : <span className="text-[var(--accent)] font-semibold">sécurité
-        applicative web</span>, <span className="text-[var(--accent)] font-semibold">supply chain
-        logicielle</span> et <span className="text-[var(--accent)] font-semibold">sécurité de l&apos;IA
-        générative</span>. Mon objectif est moins de tout lire que de garder une vue d&apos;ensemble
-        cohérente pour pouvoir argumenter mes choix techniques.
+        de la chaîne d&apos;approvisionnement logicielle</span>,{" "}
+        <span className="text-[var(--accent)] font-semibold">réglementation européenne cybersécurité</span>{" "}
+        (NIS2, DORA, CRA) et <span className="text-[var(--accent)] font-semibold">IA générative dans le
+        développement logiciel</span>. Mon objectif est moins de tout lire que de garder une vue
+        d&apos;ensemble cohérente pour pouvoir argumenter mes choix techniques.
       </p>
 
       {/* Outils & méthode */}
