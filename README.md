@@ -17,10 +17,10 @@ Pensé pour servir de portefeuille de compétences conforme à l'épreuve **E5 d
 - Animation d'intro au premier chargement
 - Navbar responsive avec menu mobile
 - Page CV intégrée
-- Sections de la home : À propos, BTS SIO, Compétences SLAM (référentiel),
-  Compétences techniques, Outils, Projets, Veille technologique, Parcours Pro, Scolaire, Contact
+- Sections de la home : À propos, BTS SIO, Compétences techniques, Outils, Projets, Veille technologique, Parcours Pro, Scolaire, Contact
 - Pages dédiées par projet au format fiche E5 (contexte / demande / démarche / techno / résultats / compétences mobilisées)
 - Section veille technologique avec sujets dépliables et liste d'articles synthétisés
+- Page /synthese embarquant le tableau de synthèse Annexe 6 (PDF)
 
 ## Architecture
 
@@ -44,8 +44,7 @@ app/
 
 Toutes les compétences référentielles (blocs 1, 2 SLAM, 3 cybersécurité)
 et la liste des projets sont centralisées dans [`app/projets/data.ts`](app/projets/data.ts).
-La section "Compétences SLAM" en home et les fiches projets s'y connectent automatiquement,
-ce qui évite les duplications de mapping.
+Les fiches projet s'y connectent automatiquement pour afficher les compétences mobilisées.
 
 ## Lancer le projet
 
