@@ -4,8 +4,6 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Projet } from "./data";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
 const filtres: { id: "all" | Projet["type"]; label: string }[] = [
   { id: "all", label: "Tous" },
   { id: "perso", label: "Personnels" },
@@ -40,6 +38,7 @@ export default function ProjetsListeClient({ projets }: { projets: Projet[] }) {
           <button
             key={f.id}
             type="button"
+            aria-pressed={filtre === f.id}
             onClick={() => setFiltre(f.id)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
               filtre === f.id
@@ -66,7 +65,7 @@ export default function ProjetsListeClient({ projets }: { projets: Projet[] }) {
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed mb-5">{projet.resume}</p>
             <Link
-              href={`${basePath}/projets/${projet.slug}`}
+              href={`/projets/${projet.slug}`}
               className="mt-auto px-5 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--bg-primary)] font-semibold rounded-lg transition-colors duration-200 self-start"
             >
               Voir la fiche complète

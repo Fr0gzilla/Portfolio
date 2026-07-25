@@ -1,5 +1,3 @@
-"use client";
-
 export default function HeroSection() {
   return (
     <section
@@ -19,7 +17,6 @@ export default function HeroSection() {
 
       {/* Scroll indicator — animation CSS pure, ne tourne que si l'élément est visible */}
       <div
-        aria-label="Indicateur de défilement"
         className="hero-scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <span className="text-xs text-[var(--text-muted)] tracking-widest uppercase">Scroll</span>

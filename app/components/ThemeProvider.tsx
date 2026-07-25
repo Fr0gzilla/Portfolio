@@ -16,11 +16,18 @@ export function useTheme() {
 // Lit le thème déjà appliqué par le script inline du layout (cf. ThemeInitScript).
 // Aucun return null : on rend le tree dès le premier render — la classe est déjà sur <html>.
 export default function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  // Initialise depuis la classe déjà posée sur <html> par le script inline,
+  // pour que le bouton affiche la bonne icône dès le premier rendu client.
+  const [theme, setTheme] = useState<Theme>(() =>
+    typeof document !== "undefined" &&
+    document.documentElement.classList.contains("light")
+      ? "light"
+      : "dark"
+  );
 
   useEffect(() => {
     const isLight = document.documentElement.classList.contains("light");
-    if (isLight) setTheme("light");
+    setTheme(isLight ? "light" : "dark");
   }, []);
 
   const toggleTheme = () => {
