@@ -5,7 +5,6 @@ import { useState, useRef, useCallback } from "react";
 import { projets, type Projet } from "../projets/data";
 
 const HOVER_DELAY = 400;
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function ProjectsSection() {
   return (
@@ -92,7 +91,7 @@ function ProjetCarte({ projet, fullWidth }: { projet: Projet; fullWidth: boolean
 
       <div className="mt-auto flex flex-wrap gap-3">
         <Link
-          href={`${basePath}/projets/${projet.slug}`}
+          href={`/projets/${projet.slug}`}
           className="px-5 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--bg-primary)] font-semibold rounded-lg transition-colors duration-200"
         >
           Voir la fiche complète

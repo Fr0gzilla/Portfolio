@@ -1,8 +1,11 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export const metadata: Metadata = {
+  title: "Tableau de synthèse – Marceau GIOANETTI",
+};
 
 export default function SynthesePage() {
   return (

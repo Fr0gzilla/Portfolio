@@ -120,6 +120,7 @@ export default function Navbar() {
             <a
               key={link.id}
               href={`#${link.id}`}
+              aria-current={active === link.id ? "true" : undefined}
               className={`px-3 py-2 text-sm rounded-lg transition-colors ${
                 active === link.id
                   ? "text-[var(--accent)] bg-[var(--accent)]/10 font-semibold"
@@ -153,6 +154,8 @@ export default function Navbar() {
             className="lg:hidden p-2 rounded-lg hover:bg-[var(--accent)]/10 transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -184,13 +187,14 @@ export default function Navbar() {
 
       {/* Mobile menu — animation CSS pure plutôt que Framer AnimatePresence */}
       {menuOpen && (
-        <nav className="lg:hidden overflow-hidden glass mobile-menu-open">
+        <nav id="mobile-nav" aria-label="Menu principal" className="lg:hidden overflow-hidden glass mobile-menu-open">
           <div className="px-4 py-4 flex flex-col gap-1">
             {links.map((link) => (
               <a
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={handleLinkClick}
+                aria-current={active === link.id ? "true" : undefined}
                 className={`px-4 py-3 rounded-lg text-sm transition-colors ${
                   active === link.id
                     ? "text-[var(--accent)] bg-[var(--accent)]/10 font-semibold"

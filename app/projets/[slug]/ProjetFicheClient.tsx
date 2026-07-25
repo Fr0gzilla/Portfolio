@@ -1,9 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import type { CompetenceReferentiel, Projet } from "../data";
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const typeLabels: Record<Projet["type"], string> = {
   perso: "Projet personnel",
@@ -67,6 +63,8 @@ export default function ProjetFicheClient({
           <img
             src={projet.preview}
             alt={`Aperçu de l'application ${projet.titre}`}
+            width={1280}
+            height={720}
             loading="lazy"
             decoding="async"
             className="w-full h-auto"
@@ -99,9 +97,9 @@ export default function ProjetFicheClient({
         <Bloc titre="Technologies & outils">
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
-              <h4 className="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-3">
+              <h3 className="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-3">
                 Technologies
-              </h4>
+              </h3>
               <div className="flex flex-wrap gap-2">
                 {projet.technologies.map((tech) => (
                   <span
@@ -114,9 +112,9 @@ export default function ProjetFicheClient({
               </div>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-3">
+              <h3 className="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-3">
                 Outils
-              </h4>
+              </h3>
               <div className="flex flex-wrap gap-2">
                 {projet.outils.map((outil) => (
                   <span
@@ -190,13 +188,13 @@ export default function ProjetFicheClient({
       <nav className="mt-12 grid sm:grid-cols-2 gap-4" aria-label="Navigation entre projets">
         {previous ? (
           <Link
-            href={`${basePath}/projets/${previous.slug}`}
+            href={`/projets/${previous.slug}`}
             className="glass-strong rounded-2xl p-5 transition-colors duration-200 hover:border-[var(--accent)]/50"
           >
             <p className="text-xs uppercase tracking-wide text-[var(--text-muted)] mb-1">Précédent</p>
             <p className="font-semibold text-[var(--text-primary)]">
               <span aria-hidden="true">← </span>
-              {previous.titre} {previous.emoji}
+              {previous.titre} <span aria-hidden="true">{previous.emoji}</span>
             </p>
           </Link>
         ) : (
@@ -204,12 +202,12 @@ export default function ProjetFicheClient({
         )}
         {next ? (
           <Link
-            href={`${basePath}/projets/${next.slug}`}
+            href={`/projets/${next.slug}`}
             className="glass-strong rounded-2xl p-5 text-right transition-colors duration-200 hover:border-[var(--accent)]/50"
           >
             <p className="text-xs uppercase tracking-wide text-[var(--text-muted)] mb-1">Suivant</p>
             <p className="font-semibold text-[var(--text-primary)]">
-              {next.titre} {next.emoji}
+              {next.titre} <span aria-hidden="true">{next.emoji}</span>
               <span aria-hidden="true"> →</span>
             </p>
           </Link>

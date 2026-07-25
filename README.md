@@ -1,6 +1,6 @@
 # Portfolio - Marceau Gioanetti
 
-Portfolio personnel construit avec **Next.js**, **TailwindCSS** et **Framer Motion**.
+Portfolio personnel construit avec **Next.js** et **TailwindCSS**.
 Pensé pour servir de portefeuille de compétences conforme à l'épreuve **E5 du BTS SIO option SLAM**.
 
 ## Stack technique
@@ -8,7 +8,7 @@ Pensé pour servir de portefeuille de compétences conforme à l'épreuve **E5 d
 - **Next.js 16** (App Router, Turbopack, export statique)
 - **React 19**
 - **TailwindCSS 4**
-- **Framer Motion 12** pour les animations
+- Animations en **CSS pur** (IntersectionObserver + keyframes, sans dépendance)
 - **TypeScript 5**
 
 ## Fonctionnalités
@@ -26,7 +26,7 @@ Pensé pour servir de portefeuille de compétences conforme à l'épreuve **E5 d
 
 ```text
 app/
-├── components/      Composants réutilisables (Navbar, Footer, GlassCard, etc.)
+├── components/      Composants réutilisables (Navbar, Footer, ThemeProvider, etc.)
 ├── sections/        Sections de la home (Hero, About, BtsSio, ...)
 │   └── veilleData.ts        Source de vérité des sujets et articles de veille
 ├── projets/         Système de fiches projet

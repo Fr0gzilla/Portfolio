@@ -14,11 +14,13 @@
 
   --text-primary: #0f172a;
   --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  /* Assombri (slate-500) pour passer le contraste AA 4.5:1 sur le fond clair. */
+  --text-muted: #64748b;
 
-  --accent: #f97316;
-  --accent-hover: #ea580c;
-  --accent-glow: rgba(249, 115, 22, 0.2);
+  /* orange-700/800 : passe AA 4.5:1 en texte sur clair ET en fond avec texte clair. */
+  --accent: #c2410c;
+  --accent-hover: #9a3412;
+  --accent-glow: rgba(194, 65, 12, 0.2);
 
   --card-bg: rgba(255, 255, 255, 0.25);
   --card-border: rgba(255, 255, 255, 0.4);
@@ -42,7 +44,8 @@
 
   --text-primary: #f1f5f9;
   --text-secondary: #cbd5e1;
-  --text-muted: #64748b;
+  /* Éclairci (slate-400) pour passer le contraste AA sur le fond sombre. */
+  --text-muted: #94a3b8;
 
   --accent: #22d3ee;
   --accent-hover: #67e8f9;
@@ -65,8 +68,8 @@
   --color-accent-hover: var(--accent-hover);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 /* ======================== BASE ======================== */
@@ -231,42 +234,6 @@ section {
 
 .theme-toggle-icon.is-dark  { transform: rotate(0deg); }
 .theme-toggle-icon.is-light { transform: rotate(180deg); }
-
-/* ======================== ANIMATIONS NOTES (héritées) ======================== */
-
-.note {
-  pointer-events: none;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 28px;
-  text-shadow: 0 0 10px var(--accent-glow);
-  opacity: 0;
-  z-index: 9999;
-}
-
-@keyframes noteUp1 {
-  0%   { transform: translate(-50%, 0) rotate(-10deg); opacity: 0; }
-  20%  { opacity: 1; }
-  100% { transform: translate(-120%, -120px) rotate(-20deg); opacity: 0; }
-}
-
-@keyframes noteUp2 {
-  0%   { transform: translate(-50%, 0) rotate(10deg); opacity: 0; }
-  20%  { opacity: 1; }
-  100% { transform: translate(0%, -150px) rotate(20deg); opacity: 0; }
-}
-
-@keyframes noteUp3 {
-  0%   { transform: translate(-50%, 0) rotate(0deg); opacity: 0; }
-  20%  { opacity: 1; }
-  100% { transform: translate(80%, -130px) rotate(-15deg); opacity: 0; }
-}
-
-.animate-note1 { animation: noteUp1 1.5s ease-out forwards; }
-.animate-note2 { animation: noteUp2 1.8s ease-out forwards; }
-.animate-note3 { animation: noteUp3 2s ease-out forwards; }
 
 /* ======================== SOCIAL ICONS ======================== */
 

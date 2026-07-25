@@ -20,7 +20,7 @@ export default function ScolaireSection() {
             BTS SIO – Option SLAM 💻
           </h3>
 
-          <p className="text-[var(--text-muted)]">📍 ESNA — Bruz</p>
+          <p className="text-[var(--text-muted)]"><span aria-hidden="true">📍</span> ESNA — Bruz</p>
 
           <p className="text-[var(--accent)] font-semibold mb-4">
             2024 → 2026
@@ -41,7 +41,7 @@ export default function ScolaireSection() {
           </h3>
 
           <p className="text-[var(--text-muted)]">
-            📍 Lycée Benjamin Franklin — Auray
+            <span aria-hidden="true">📍</span> Lycée Benjamin Franklin — Auray
           </p>
 
           <p className="text-[var(--accent)] font-semibold mb-4">

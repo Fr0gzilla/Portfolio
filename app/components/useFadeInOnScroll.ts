@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 // Stratégie révisée :
 // 1. Par défaut, les sections sont entièrement visibles (cf. globals.css).
@@ -11,6 +12,11 @@ import { useEffect } from "react";
 // 3. On utilise un seul IntersectionObserver partagé pour toutes les sections
 //    plutôt qu'un par carte (ce que faisait Framer avec ses motion.* — coûteux).
 export default function useFadeInOnScroll() {
+  // FadeInProvider vit dans le layout persistant : sans dépendance au pathname,
+  // l'effet ne se relancerait jamais lors d'une navigation client (SPA) et les
+  // nouvelles sections monteraient sans être observées (donc invisibles).
+  const pathname = usePathname();
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -59,5 +65,5 @@ export default function useFadeInOnScroll() {
       observer.disconnect();
       document.documentElement.classList.remove("js-fade-ready");
     };
-  }, []);
+  }, [pathname]);
 }

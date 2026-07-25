@@ -19,7 +19,7 @@ export default function ParcoursSection() {
             Apprenti Développeur – Capgemini Technology Services 💼
           </h3>
 
-          <p className="text-[var(--text-muted)] mb-4">📍 Rennes</p>
+          <p className="text-[var(--text-muted)] mb-4"><span aria-hidden="true">📍</span> Rennes</p>
 
           <p className="text-[var(--accent)] font-semibold mb-2">
             Septembre 2024 → Janvier 2025
@@ -53,7 +53,7 @@ export default function ParcoursSection() {
           </h3>
 
           <p className="text-[var(--accent)] font-semibold">Juillet 2024</p>
-          <p className="text-[var(--text-muted)] mb-4">📍 Carnac (Morbihan)</p>
+          <p className="text-[var(--text-muted)] mb-4"><span aria-hidden="true">📍</span> Carnac (Morbihan)</p>
 
           <p className="text-[var(--text-secondary)] leading-relaxed">
             Expérience dans un centre nautique breton : encadrement de séances, gestion du matériel, mise en sécurité du public et initiation à la pratique de la voile. Cette expérience m&apos;a appris la pédagogie, la responsabilité et la gestion de groupe.
