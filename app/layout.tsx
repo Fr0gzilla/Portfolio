@@ -26,7 +26,7 @@ export const metadata = {
     title: "Portfolio – Marceau GIOANETTI",
     description:
       "Développeur en alternance chez Capgemini – Projets, compétences et parcours.",
-    url: "https://fr0gzilla.github.io/portfolio/",
+    url: "https://fr0gzilla.github.io/Portfolio/",
     siteName: "Portfolio Marceau GIOANETTI",
     locale: "fr_FR",
     type: "website",
