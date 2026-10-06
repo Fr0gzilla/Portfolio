@@ -59,8 +59,18 @@ export default function Navbar() {
         .filter((x): x is { id: string; el: HTMLElement } => x.el !== null);
     };
 
+    // Après une navigation client (aller/retour vers la home), les sections ont été
+    // démontées : sans rechargement, le cache ne pointe plus que des nœuds morts et
+    // le surlignage reste figé jusqu'au prochain resize.
+    const cacheStale = () =>
+      cached.length === 0
+        ? document.getElementById("home") !== null
+        : cached.some(({ el }) => !document.contains(el));
+
     const update = () => {
       rafId = null;
+      if (cacheStale()) refreshCache();
+
       const scrollPos = window.scrollY + window.innerHeight / 2;
 
       for (const { id, el } of cached) {
@@ -108,7 +118,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a
-          href="#home"
+          href={`${basePath}/#home`}
           className="text-lg font-bold text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
         >
           M. GIOANETTI
@@ -119,7 +129,7 @@ export default function Navbar() {
           {links.map((link) => (
             <a
               key={link.id}
-              href={`#${link.id}`}
+              href={`${basePath}/#${link.id}`}
               className={`px-3 py-2 text-sm rounded-lg transition-colors ${
                 active === link.id
                   ? "text-[var(--accent)] bg-[var(--accent)]/10 font-semibold"
@@ -189,7 +199,7 @@ export default function Navbar() {
             {links.map((link) => (
               <a
                 key={link.id}
-                href={`#${link.id}`}
+                href={`${basePath}/#${link.id}`}
                 onClick={handleLinkClick}
                 className={`px-4 py-3 rounded-lg text-sm transition-colors ${
                   active === link.id
