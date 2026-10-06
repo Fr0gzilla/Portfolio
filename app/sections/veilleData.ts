@@ -37,7 +37,7 @@ export const sujetsVeille: SujetVeille[] = [
     description:
       "Suivi des attaques visant les écosystèmes de paquets open source (npm, PyPI, Docker Hub, Maven), des techniques d'exploitation (typosquatting, dépendance compromise, vol de credentials de mainteneurs) et des contre-mesures côté éditeurs et développeurs (SBOM, signatures Sigstore, dependency cooldown, Trusted Publishing).",
     motivations:
-      "Mes projets reposent sur des centaines de dépendances transitives (Next.js, Tailwind, Framer Motion côté front, Flask et SQLAlchemy côté back). Une seule compromise peut exfiltrer mes secrets ou mon code en quelques minutes. Je veux être capable d'identifier les indicateurs d'une attaque, de réagir rapidement et de mettre en place une chaîne de build défensive.",
+      "Mes projets reposent sur des centaines de dépendances transitives (Next.js, Tailwind côté front, Flask et SQLAlchemy côté back). Une seule compromise peut exfiltrer mes secrets ou mon code en quelques minutes. Je veux être capable d'identifier les indicateurs d'une attaque, de réagir rapidement et de mettre en place une chaîne de build défensive.",
     sources: [
       { nom: "GitGuardian Blog", url: "https://blog.gitguardian.com/", type: "Site" },
       { nom: "Socket.dev", url: "https://socket.dev/blog", type: "Site" },
