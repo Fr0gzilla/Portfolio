@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 // Stratégie révisée :
 // 1. Par défaut, les sections sont entièrement visibles (cf. globals.css).
@@ -11,6 +12,11 @@ import { useEffect } from "react";
 // 3. On utilise un seul IntersectionObserver partagé pour toutes les sections
 //    plutôt qu'un par carte (ce que faisait Framer avec ses motion.* — coûteux).
 export default function useFadeInOnScroll() {
+  // Le hook vit dans le layout : il doit se ré-exécuter à chaque navigation,
+  // sinon les sections remontées par la page d'accueil ne sont jamais observées
+  // (classe `js-fade-ready` déjà posée -> opacity 0 définitif après un aller/retour).
+  const pathname = usePathname();
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -59,5 +65,5 @@ export default function useFadeInOnScroll() {
       observer.disconnect();
       document.documentElement.classList.remove("js-fade-ready");
     };
-  }, []);
+  }, [pathname]);
 }
