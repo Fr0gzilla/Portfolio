@@ -14,7 +14,7 @@ export default function HeroSection() {
       </h1>
 
       <p className="hero-subtitle mt-4 text-lg sm:text-2xl text-[var(--text-secondary)]">
-        Étudiant en 2<sup>e</sup> année de BTS SIO option SLAM
+        Étudiant en 3<sup>e</sup> année de Bachelor Développement Informatique
       </p>
 
       {/* Scroll indicator — animation CSS pure, ne tourne que si l'élément est visible */}

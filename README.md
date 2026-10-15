@@ -17,9 +17,8 @@ Pensé pour servir de portefeuille de compétences conforme à l'épreuve **E5 d
 - Design glassmorphism avec thème sombre / clair (bascule dans la navbar)
 - Navbar responsive avec menu mobile
 - Page CV intégrée (`/cv`, PDF)
-- Sections de la home : Hero, À propos, BTS SIO, Compétences techniques, Outils, Projets, Veille technologique, Parcours, Scolaire, Contact
+- Sections de la home : Hero, À propos, BTS SIO, Compétences techniques, Outils, Projets, Parcours, Scolaire, Contact
 - Pages dédiées par projet au format fiche E5 (contexte / demande / démarche / techno / résultats / compétences mobilisées)
-- Section veille technologique : sujets dépliables et liste d'articles synthétisés
 - Page `/synthese` : tableau de synthèse (PDF)
 
 ## Architecture
@@ -29,7 +28,6 @@ app/
 ├── components/      Navbar (+ ThemeToggleButton), ThemeProvider, FadeInProvider,
 │                    useFadeInOnScroll, Footer, ScrollToTop, BackgroundGradient
 ├── sections/        Sections de la home (Hero, About, BtsSio, Skills, ...)
-│   └── veilleData.ts        Source de vérité des sujets et articles de veille
 ├── projets/
 │   ├── data.ts              Source de vérité projets + référentiel BTS SIO SLAM
 │   ├── page.tsx             Liste indexée /projets avec filtres par type

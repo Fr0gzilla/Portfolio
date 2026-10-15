@@ -13,7 +13,6 @@ const links = [
   { id: "skills", label: "Compétences" },
   { id: "tools", label: "Outils" },
   { id: "projects", label: "Projets" },
-  { id: "veille", label: "Veille" },
   { id: "parcours", label: "Parcours Pro" },
   { id: "scolaire", label: "Scolaire" },
   { id: "contact", label: "Contact" },

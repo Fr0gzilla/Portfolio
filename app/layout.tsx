@@ -11,11 +11,13 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export const metadata = {
   title: "Portfolio – Marceau GIOANETTI",
   description:
-    "Portfolio de Marceau GIOANETTI – Développeur en alternance chez Capgemini. Projets, compétences, parcours et CV.",
+    "Portfolio de Marceau GIOANETTI – Étudiant en Bachelor Développement Informatique, deux ans d'alternance développeur chez Capgemini. Projets, compétences, parcours et CV.",
   keywords: [
     "Marceau GIOANETTI",
     "portfolio",
     "développeur",
+    "Bachelor",
+    "Sup de Vinci",
     "BTS SIO",
     "SLAM",
     "Capgemini",
@@ -25,7 +27,7 @@ export const metadata = {
   openGraph: {
     title: "Portfolio – Marceau GIOANETTI",
     description:
-      "Développeur en alternance chez Capgemini – Projets, compétences et parcours.",
+      "Étudiant en Bachelor Développement Informatique – Projets, compétences et parcours.",
     url: "https://fr0gzilla.github.io/Portfolio/",
     siteName: "Portfolio Marceau GIOANETTI",
     locale: "fr_FR",

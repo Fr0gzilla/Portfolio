@@ -35,8 +35,8 @@ export default function ContactSection() {
           Envie de collaborer ?
         </h3>
         <p className="text-[var(--text-secondary)] leading-relaxed mb-8">
-          Vous trouverez toutes mes coordonnées sur mon CV.
-          N&apos;hésitez pas à me contacter pour discuter d&apos;un projet ou d&apos;une opportunité.
+          N&apos;hésitez pas à me contacter sur LinkedIn pour discuter d&apos;un projet
+          ou d&apos;une opportunité.
         </p>
 
         <div className="flex gap-4 justify-center">
