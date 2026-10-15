@@ -28,8 +28,6 @@ app/
 ├── sections/        Sections de la home (Hero, About, Skills, ...)
 ├── projets/
 │   ├── data.ts              Source de vérité des projets
-│   ├── page.tsx             Liste indexée /projets avec filtres par type
-│   ├── ProjetsListeClient.tsx
 │   └── [slug]/
 │       ├── page.tsx                Route dynamique avec generateStaticParams
 │       └── ProjetFicheClient.tsx   Layout fiche projet (contexte, démarche, etc.)
