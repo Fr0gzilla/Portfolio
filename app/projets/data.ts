@@ -1,5 +1,5 @@
 // Source de vérité unique pour les projets.
-// Utilisée par : ProjectsSection (home), /projets, /projets/[slug].
+// Utilisée par : ProjectsSection (home), /projets/[slug].
 
 export type Projet = {
   slug: string;
@@ -17,7 +17,6 @@ export type Projet = {
   apports?: string;
   liens: { label: string; url: string }[];
   preview?: string;
-  galerie?: string[];
   periode: string;
   role: string;
   confidentialite?: "public" | "anonymise" | "interne";
