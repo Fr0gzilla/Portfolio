@@ -177,6 +177,34 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export const projets: Projet[] = [
   {
+    slug: "maestro",
+    titre: "Maestro",
+    emoji: "🎼",
+    type: "perso",
+    resume:
+      "Orchestrateur d'agents IA qui mène un projet logiciel de bout en bout, du cahier des charges au livrable testé, en autonomie sur un serveur dédié.",
+    contexte:
+      "Projet personnel : un système qui tourne en permanence sur un PC dédié, se pilote à distance par un réseau privé et travaille seul la nuit. Le code complet est privé ; le dépôt public présente la revue du projet (conception, choix, mesures, incidents et leçons).",
+    demande:
+      "Recevoir un besoin, le découper en tâches, confier chaque tâche à des agents spécialisés (développement, modélisation, cours, cybersécurité), faire vérifier puis recetter le travail et rendre compte, sans boucle infinie ni surveillance permanente.",
+    demarche: [
+      "Architecture à trois niveaux : un orchestrateur, quatre chefs d'équipe et trente-deux agents ouvriers ; chaque livrable est jugé par un vérificateur qui n'a pas le droit d'écrire.",
+      "Protocole normalisé entre agents (FAIT, CORRECTIONS, BESOIN, BLOQUÉ) et deux tours de correction au plus avant remontée du blocage.",
+      "Sécurité dès la conception : agents confinés dans des conteneurs, sorties Internet filtrées par liste blanche, aucun secret en clair, audits indépendants suivis de correctifs.",
+      "Exploitation en continu : file de travaux de nuit, maintenance automatique, reprise après coupure, bascule automatique quand un fournisseur de modèles tombe.",
+      "Optimisation pilotée par la mesure : bancs d'essai avant/après et comparaison de configurations pour réduire le coût en tokens.",
+    ],
+    technologies: ["Python", "Bash", "Docker", "Node.js", "PHP"],
+    outils: ["Claude Code", "opencode", "Ubuntu Server", "systemd", "Docker rootless", "Git / GitHub"],
+    competencesMobilisees: ["C1.4", "C1.6", "C2.1.1", "C2.1.2", "C2.1.4", "C2.1.5", "C2.1.6", "C2.2.1", "C2.2.2", "C3.4", "C3.5"],
+    resultats:
+      "En service, avec 398 tests automatisés et 17 674 vérifications de permissions. Une application web (PHP, MySQL, Docker) a été menée seule de nuit ; refaite après optimisation du système : −50 % de temps, −32 % d'appels aux modèles et −46 % de tokens relus. Le tableau de bord web de Maestro a été construit, audité et recetté par ses propres agents.",
+    liens: [{ label: "Revue du projet (GitHub)", url: "https://github.com/Fr0gzilla/Maestro" }],
+    periode: "2026",
+    role: "Concepteur et développeur (projet solo)",
+    confidentialite: "public",
+  },
+  {
     slug: "beatshelf",
     titre: "Beatshelf",
     emoji: "🎧",
@@ -285,7 +313,7 @@ export const projets: Projet[] = [
       "Travail dans un cadre Scrum réel, expérience d'un projet long avec plusieurs intervenants et confrontation à des contraintes de production.",
     liens: [{ label: "Code source (privé)", url: "https://github.com/Fr0gzilla/CloudInventory.v2" }],
     preview: `${basePath}/previews/cloudinventory.webp`,
-    periode: "Janvier 2025 → en cours",
+    periode: "Janvier 2025 → Juillet 2026",
     role: "Développeur (équipe Capgemini, mission client)",
     // TODO: valider mention publique du client avec tuteur Capgemini avant remise en clair.
     confidentialite: "anonymise",

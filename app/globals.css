@@ -107,6 +107,11 @@ section {
   opacity: 0.7;
 }
 
+/* Logos monochromes noirs (ex. Next.js) : passés en blanc sur le thème sombre. */
+.dark .logo-mono {
+  filter: invert(1);
+}
+
 /* ======================== GLASSMORPHISM ======================== */
 /* Blurs réduits.
    On NE force PAS le promote-to-layer (translateZ(0)) sur les cartes : avec ~30 cartes,

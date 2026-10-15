@@ -11,6 +11,26 @@ export default function ScolaireSection() {
       <div className="h-[3px] w-24 bg-[var(--accent)] mb-10" />
 
       <div className="flex flex-col gap-8">
+        {/* BACHELOR */}
+        <div
+          className="glass-strong rounded-2xl p-6 sm:p-8 transition-colors duration-200
+                     hover:border-[var(--accent)]/50"
+        >
+          <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">
+            Bachelor Développement Informatique – 3<sup>e</sup> année 🚀
+          </h3>
+
+          <p className="text-[var(--text-muted)]">📍 Sup de Vinci</p>
+
+          <p className="text-[var(--accent)] font-semibold mb-4">
+            2026 → 2027
+          </p>
+
+          <p className="text-[var(--text-secondary)] leading-relaxed">
+            Année de Bachelor après le BTS SIO, pour approfondir le développement applicatif et l&apos;architecture logicielle.
+          </p>
+        </div>
+
         {/* BTS SIO */}
         <div
           className="glass-strong rounded-2xl p-6 sm:p-8 transition-colors duration-200

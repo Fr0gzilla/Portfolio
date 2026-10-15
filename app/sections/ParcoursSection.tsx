@@ -35,7 +35,7 @@ export default function ParcoursSection() {
           </h4>
 
           <p className="text-[var(--accent)] font-semibold mb-2">
-            Janvier 2025 → Aujourd&apos;hui
+            Janvier 2025 → Juillet 2026
           </p>
 
           <p className="text-[var(--text-secondary)] leading-relaxed">
@@ -52,11 +52,11 @@ export default function ParcoursSection() {
             Moniteur de Voile ⛵
           </h3>
 
-          <p className="text-[var(--accent)] font-semibold">Juillet 2024</p>
+          <p className="text-[var(--accent)] font-semibold">2023 → Aujourd&apos;hui</p>
           <p className="text-[var(--text-muted)] mb-4">📍 Carnac (Morbihan)</p>
 
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Expérience dans un centre nautique breton : encadrement de séances, gestion du matériel, mise en sécurité du public et initiation à la pratique de la voile. Cette expérience m&apos;a appris la pédagogie, la responsabilité et la gestion de groupe.
+            Expérience dans un centre nautique breton : encadrement de séances, gestion du matériel, mise en sécurité du public et initiation à la pratique de la voile. Cette expérience m&apos;a appris la pédagogie, la responsabilité et la gestion de groupe. Activité poursuivie ponctuellement à titre bénévole.
           </p>
         </div>
       </div>

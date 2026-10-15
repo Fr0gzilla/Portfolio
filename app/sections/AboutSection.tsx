@@ -16,9 +16,10 @@ export default function AboutSection() {
           </p>
 
           <p>
-            Je suis actuellement étudiant à l&apos;ESNA de Bruz 🗺️ en deuxième année de
-            <span className="font-semibold"> BTS SIO</span>
-            {" "}dans l&apos;option <span className="font-semibold">SLAM</span> orientée développement 💻
+            Je suis actuellement en 3<sup>e</sup> année de
+            <span className="font-semibold"> Bachelor Développement Informatique</span> à Sup de Vinci 💻,
+            après un <span className="font-semibold">BTS SIO option SLAM</span> à l&apos;ESNA de Bruz 🗺️
+            et deux ans d&apos;alternance chez <span className="font-semibold">Capgemini</span>.
           </p>
 
           <p>
