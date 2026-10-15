@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -67,62 +67,80 @@ export default function SkillsSection() {
         Toutes ces connaissances ont été acquises via mes études, mon alternance et mes projets.
       </p>
 
-      <div className="flex flex-col gap-4">
-        {categories.map((cat) => (
-          <CategorieDepliable key={cat.titre} cat={cat} />
-        ))}
-      </div>
+      <OngletsCompetences />
     </section>
   );
 }
 
-// Catégorie repliée par défaut : un clic sur le titre déroule les compétences
-// (même transition grid-template-rows que l'aperçu des cartes projets).
-function CategorieDepliable({ cat }: { cat: Categorie }) {
-  const [ouvert, setOuvert] = useState(false);
-  const panelId = `skills-${cat.titre.toLowerCase().replace(/[^a-z]+/g, "-")}`;
+// Une catégorie affichée à la fois, choisie via les onglets (flèches gauche/droite au clavier).
+function OngletsCompetences() {
+  const [actif, setActif] = useState(0);
+  const tabs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    e.preventDefault();
+    const n = categories.length;
+    const next = (actif + (e.key === "ArrowRight" ? 1 : n - 1)) % n;
+    setActif(next);
+    tabs.current[next]?.focus();
+  };
 
   return (
-    <div className="glass-strong rounded-2xl px-5 sm:px-6">
-      <button
-        type="button"
-        onClick={() => setOuvert((o) => !o)}
-        aria-expanded={ouvert}
-        aria-controls={panelId}
-        className="w-full flex items-center gap-3 py-4 text-left group"
-      >
-        <h3 className="text-xl font-semibold text-[var(--accent)]">{cat.titre}</h3>
-        <span className="text-sm text-[var(--text-muted)]">({cat.skills.length})</span>
-        <svg
-          className={`ml-auto text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition-transform duration-300 ${
-            ouvert ? "rotate-180" : ""
-          }`}
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M6 9l6 6 6-6" />
-        </svg>
-      </button>
-
+    <div>
       <div
-        id={panelId}
-        className={`grid transition-[grid-template-rows,opacity] duration-400 ease-out ${
-          ouvert ? "opacity-100" : "opacity-0"
-        }`}
-        style={{ gridTemplateRows: ouvert ? "1fr" : "0fr" }}
-        inert={!ouvert}
+        role="tablist"
+        aria-label="Catégories de compétences"
+        onKeyDown={onKeyDown}
+        className="grid grid-cols-2 sm:inline-flex gap-1.5 p-1.5 rounded-2xl glass mb-8"
       >
-        {/* marge négative + padding : laisse la place au halo de survol sans être rogné */}
-        <div className="overflow-hidden -mx-4 px-4">
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-6 md:gap-10 pt-3 pb-6">
-            {cat.skills.map((tech) => (
+        {categories.map((c, i) => {
+          const selected = i === actif;
+          return (
+            <button
+              key={c.titre}
+              ref={(el) => {
+                tabs.current[i] = el;
+              }}
+              type="button"
+              role="tab"
+              id={`tab-${i}`}
+              aria-selected={selected}
+              aria-controls={`skills-panel-${i}`}
+              tabIndex={selected ? 0 : -1}
+              onClick={() => setActif(i)}
+              className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-colors duration-200 ${
+                selected
+                  ? "bg-[var(--accent)] text-[var(--bg-primary)]"
+                  : "text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/10"
+              }`}
+            >
+              {c.titre}
+              <span
+                className={`text-xs font-medium px-1.5 rounded-full ${
+                  selected ? "bg-[var(--bg-primary)]/20" : "text-[var(--text-muted)]"
+                }`}
+              >
+                {c.skills.length}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Tous les panneaux sont empilés dans la même cellule : la hauteur reste celle du plus
+          grand, donc la page ne saute pas quand on change d'onglet. */}
+      <div className="grid">
+        {categories.map((c, i) => (
+          <div
+            key={c.titre}
+            id={`skills-panel-${i}`}
+            role="tabpanel"
+            aria-labelledby={`tab-${i}`}
+            className={`[grid-area:1/1] self-start grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-6 md:gap-10
+                        transition-opacity duration-300 ${i === actif ? "opacity-100" : "opacity-0 invisible"}`}
+          >
+            {c.skills.map((tech) => (
               <div
                 key={tech.name}
                 className="glass-strong rounded-xl flex flex-col items-center justify-center
@@ -143,7 +161,7 @@ function CategorieDepliable({ cat }: { cat: Categorie }) {
               </div>
             ))}
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
