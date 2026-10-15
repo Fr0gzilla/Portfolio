@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { competencesReferentiel, getProjetBySlug, projets } from "../data";
+import { getProjetBySlug, projets } from "../data";
 import ProjetFicheClient from "./ProjetFicheClient";
 
 export function generateStaticParams() {
@@ -48,14 +48,9 @@ export default async function ProjetFichePage({
   const previous = index > 0 ? projets[index - 1] : null;
   const next = index < projets.length - 1 ? projets[index + 1] : null;
 
-  const competencesMobiliseesDetail = projet.competencesMobilisees
-    .map((code) => competencesReferentiel.find((c) => c.code === code))
-    .filter((c): c is (typeof competencesReferentiel)[number] => Boolean(c));
-
   return (
     <ProjetFicheClient
       projet={projet}
-      competencesDetail={competencesMobiliseesDetail}
       previous={previous}
       next={next}
     />

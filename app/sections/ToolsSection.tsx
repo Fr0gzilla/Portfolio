@@ -28,7 +28,7 @@ export default function ToolsSection() {
         Voici les outils et logiciels que j&apos;utilise dans mes projets et que j&apos;ai pratiqués en alternance.
       </p>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-10">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-6 md:gap-10">
         {tools.map((tool) => (
           <div
             key={tool.name}
@@ -42,9 +42,9 @@ export default function ToolsSection() {
               alt={`Logo ${tool.name}`}
               loading="lazy"
               decoding="async"
-              className={`${tool.wide ? "w-28 md:w-36" : "w-16 md:w-20"} h-16 md:h-20 object-contain mb-3`}
+              className={`${tool.wide ? "w-[85%] sm:w-28 md:w-36" : "w-11 sm:w-16 md:w-20"} h-11 sm:h-16 md:h-20 object-contain mb-2 sm:mb-3`}
             />
-            <p className="font-semibold text-center text-sm md:text-base text-[var(--text-primary)]">
+            <p className="font-semibold text-center text-xs sm:text-sm md:text-base leading-tight px-1 text-[var(--text-primary)]">
               {tool.name}
             </p>
           </div>

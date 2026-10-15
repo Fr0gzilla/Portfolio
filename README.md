@@ -2,7 +2,6 @@
 
 Portfolio personnel construit avec **Next.js**, **React** et **Tailwind CSS** : site en développement local,
 **export statique** (`out/`) déployé sur GitHub Pages.
-Pensé pour servir de portefeuille de compétences conforme à l'épreuve **E5 du BTS SIO option SLAM**.
 
 ## Stack technique
 
@@ -17,9 +16,8 @@ Pensé pour servir de portefeuille de compétences conforme à l'épreuve **E5 d
 - Design glassmorphism avec thème sombre / clair (bascule dans la navbar)
 - Navbar responsive avec menu mobile
 - Page CV intégrée (`/cv`, PDF)
-- Sections de la home : Hero, À propos, BTS SIO, Compétences techniques, Outils, Projets, Parcours, Scolaire, Contact
-- Pages dédiées par projet au format fiche E5 (contexte / demande / démarche / techno / résultats / compétences mobilisées)
-- Page `/synthese` : tableau de synthèse (PDF)
+- Sections de la home : Hero, À propos, Compétences techniques (catégories dépliables), Outils, Projets, Parcours, Scolaire, Contact
+- Pages dédiées par projet (contexte / demande / démarche / techno / résultats)
 
 ## Architecture
 
@@ -27,24 +25,21 @@ Pensé pour servir de portefeuille de compétences conforme à l'épreuve **E5 d
 app/
 ├── components/      Navbar (+ ThemeToggleButton), ThemeProvider, FadeInProvider,
 │                    useFadeInOnScroll, Footer, ScrollToTop, BackgroundGradient
-├── sections/        Sections de la home (Hero, About, BtsSio, Skills, ...)
+├── sections/        Sections de la home (Hero, About, Skills, ...)
 ├── projets/
-│   ├── data.ts              Source de vérité projets + référentiel BTS SIO SLAM
+│   ├── data.ts              Source de vérité des projets
 │   ├── page.tsx             Liste indexée /projets avec filtres par type
 │   ├── ProjetsListeClient.tsx
 │   └── [slug]/
 │       ├── page.tsx                Route dynamique avec generateStaticParams
-│       └── ProjetFicheClient.tsx   Layout fiche E5 (contexte, démarche, etc.)
+│       └── ProjetFicheClient.tsx   Layout fiche projet (contexte, démarche, etc.)
 ├── cv/page.tsx              Lecture du CV (PDF)
-├── synthese/page.tsx        Tableau de synthèse (PDF)
 ├── layout.tsx / not-found.tsx
 ├── page.tsx                 Compose les sections de la home
 └── globals.css              Variables CSS + classes glass / glass-strong / glass-nav
 ```
 
-Toutes les compétences référentielles (blocs 1, 2 SLAM, 3 cybersécurité)
-et la liste des projets sont centralisés dans [`app/projets/data.ts`](app/projets/data.ts).
-Les fiches projet s'y connectent automatiquement pour afficher les compétences mobilisées.
+La liste des projets est centralisée dans [`app/projets/data.ts`](app/projets/data.ts).
 
 ## Commandes
 

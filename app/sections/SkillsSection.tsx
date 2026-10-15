@@ -16,6 +16,7 @@ const categories: Categorie[] = [
       { name: "HTML", img: `${basePath}/logos/html-light.webp` },
       { name: "CSS", img: `${basePath}/logos/css-light.webp` },
       { name: "JavaScript", img: `${basePath}/logos/javascript-light.webp` },
+      { name: "TypeScript", img: `${basePath}/logos/typescript.svg` },
       { name: "React", img: `${basePath}/logos/react.svg` },
       { name: "Next.js", img: `${basePath}/logos/nextjs.svg`, mono: true },
       { name: "TailwindCSS", img: `${basePath}/logos/tailwind.webp` },
@@ -26,6 +27,8 @@ const categories: Categorie[] = [
     skills: [
       { name: "Python", img: `${basePath}/logos/python.webp` },
       { name: "Flask", img: `${basePath}/logos/flask.svg` },
+      { name: "SQLAlchemy", img: `${basePath}/logos/sqlalchemy.svg` },
+      { name: "Node.js", img: `${basePath}/logos/nodejs.svg` },
       { name: "Java", img: `${basePath}/logos/java.webp` },
     ],
   },
@@ -41,6 +44,7 @@ const categories: Categorie[] = [
     skills: [
       { name: "Linux (Ubuntu)", img: `${basePath}/logos/ubuntu-linux.webp` },
       { name: "Bash", img: `${basePath}/logos/bash.svg` },
+      { name: "PowerShell", img: `${basePath}/logos/powershell.svg` },
       { name: "Terraform", img: `${basePath}/logos/terraform.svg` },
       { name: "Ansible", img: `${basePath}/logos/ansible.svg` },
     ],
@@ -117,7 +121,7 @@ function CategorieDepliable({ cat }: { cat: Categorie }) {
       >
         {/* marge négative + padding : laisse la place au halo de survol sans être rogné */}
         <div className="overflow-hidden -mx-4 px-4">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-10 pt-3 pb-6">
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-6 md:gap-10 pt-3 pb-6">
             {cat.skills.map((tech) => (
               <div
                 key={tech.name}
@@ -131,9 +135,9 @@ function CategorieDepliable({ cat }: { cat: Categorie }) {
                   alt={`Logo ${tech.name}`}
                   loading="lazy"
                   decoding="async"
-                  className={`h-16 w-16 md:h-20 md:w-20 object-contain mb-3${tech.mono ? " logo-mono" : ""}`}
+                  className={`h-11 w-11 sm:h-16 sm:w-16 md:h-20 md:w-20 object-contain mb-2 sm:mb-3${tech.mono ? " logo-mono" : ""}`}
                 />
-                <p className="font-semibold text-center text-sm md:text-base text-[var(--text-primary)]">
+                <p className="font-semibold text-center text-xs sm:text-sm md:text-base leading-tight px-1 text-[var(--text-primary)]">
                   {tech.name}
                 </p>
               </div>
