@@ -208,7 +208,7 @@ section {
   }
 }
 
-/* ======================== PAGE FADE (CV, Synthese, Projets…) ======================== */
+/* ======================== PAGE FADE (CV, Projets…) ======================== */
 
 .page-fade {
   animation: pageFadeIn 0.35s ease-out both;

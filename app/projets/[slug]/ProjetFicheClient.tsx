@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import type { CompetenceReferentiel, Projet } from "../data";
+import type { Projet } from "../data";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -19,12 +19,10 @@ const confLabels: Record<NonNullable<Projet["confidentialite"]>, string> = {
 
 export default function ProjetFicheClient({
   projet,
-  competencesDetail,
   previous,
   next,
 }: {
   projet: Projet;
-  competencesDetail: CompetenceReferentiel[];
   previous: Projet | null;
   next: Projet | null;
 }) {
@@ -128,24 +126,6 @@ export default function ProjetFicheClient({
                 ))}
               </div>
             </div>
-          </div>
-        </Bloc>
-
-        <Bloc titre="Compétences référentielles mobilisées">
-          <div className="grid sm:grid-cols-2 gap-4">
-            {competencesDetail.map((c) => (
-              <div
-                key={c.code}
-                className="glass rounded-xl p-4 transition-colors duration-200 hover:border-[var(--accent)]/50"
-              >
-                <div className="flex items-baseline gap-3 mb-1">
-                  <span className="text-[var(--accent)] font-bold text-sm">{c.code}</span>
-                  <span className="text-xs text-[var(--text-muted)]">Bloc {c.bloc}</span>
-                </div>
-                <p className="text-sm font-semibold text-[var(--text-primary)] mb-1">{c.libelle}</p>
-                <p className="text-xs text-[var(--text-muted)] leading-relaxed">{c.description}</p>
-              </div>
-            ))}
           </div>
         </Bloc>
 
