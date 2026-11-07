@@ -4,7 +4,6 @@
 export type Projet = {
   slug: string;
   titre: string;
-  emoji: string;
   type: "perso" | "pro" | "scolaire";
   resume: string;
   contexte: string;
@@ -28,7 +27,6 @@ export const projets: Projet[] = [
   {
     slug: "maestro",
     titre: "Maestro",
-    emoji: "🎼",
     type: "perso",
     resume:
       "Orchestrateur d'agents IA qui mène un projet logiciel de bout en bout, du cahier des charges au livrable testé, en autonomie sur un serveur dédié.",
@@ -54,9 +52,39 @@ export const projets: Projet[] = [
     confidentialite: "public",
   },
   {
+    slug: "mac-n-play",
+    titre: "Mac'n'Play",
+    type: "perso",
+    resume:
+      "Application macOS pour jouer à sa PS4 ou PS5 sur son Mac avec sa manette (Remote Play), publiée en version 1.2 et installable avec Homebrew.",
+    contexte:
+      "Projet personnel open source, construit à partir du projet libre chiaki-ng, qui fonctionne sur plusieurs systèmes. L'idée : en faire une application pensée pour macOS, simple à installer et à utiliser à la manette.",
+    demande:
+      "Afficher l'écran de la console sur le Mac et transmettre la manette, avec un accueil utilisable entièrement à la manette, des réglages automatiques adaptés à la connexion, et une installation aussi simple qu'une application du Mac App Store.",
+    demarche: [
+      "Reprise du code de chiaki-ng (C et C++) et refonte de l'interface en modèle MVC : un contrôleur C++ par responsabilité, des vues en QML.",
+      "Accueil à la manette, assistant d'ajout de console en trois étapes, menu en jeu (volume, micro, zoom, qualité d'image).",
+      "Qualité d'image qui s'adapte seule à la connexion, y compris pour jouer hors de chez soi par Internet.",
+      "Outil « Tester ma connexion » qui vérifie le réseau, Internet, le compte PSN et la console, et explique le problème en clair.",
+      "Application traduite en 6 langues. Fabrication automatisée par GitHub Actions : tests, création du .dmg, publication de la version et mise à jour de Homebrew.",
+    ],
+    technologies: ["C++", "C", "QML", "Qt", "CMake"],
+    outils: ["GitHub Actions", "Homebrew", "Git / GitHub", "Claude Code"],
+    resultats:
+      "Six versions publiées en une semaine (de la 1.0.0 à la 1.2.1), téléchargeables depuis GitHub ou installables avec Homebrew, sur les Mac à puce Apple sous macOS 15 ou plus récent.",
+    difficultes:
+      "Comprendre un gros code C/C++ existant avant de le restructurer, et suivre les changements côté Sony (par exemple les certificats que OpenSSL 3.5 ne validait plus).",
+    apports:
+      "Mener un produit jusqu'à sa distribution réelle : versions, notes de version, traductions, documentation pour les utilisateurs et pour les contributeurs.",
+    liens: [{ label: "Code source et téléchargement (GitHub)", url: "https://github.com/Fr0gzilla/Mac-n-Play" }],
+    preview: `${basePath}/previews/macnplay.webp`,
+    periode: "Novembre 2026 → en cours",
+    role: "Développeur (projet solo, basé sur chiaki-ng)",
+    confidentialite: "public",
+  },
+  {
     slug: "beatshelf",
     titre: "Beatshelf",
-    emoji: "🎧",
     type: "perso",
     resume:
       "Application de streaming musical centrée sur l'écoute et l'organisation de sa bibliothèque (playlists, favoris, historique).",
@@ -70,11 +98,12 @@ export const projets: Projet[] = [
       "Modélisation des entités principales (utilisateur, morceau, playlist, favori, écoute).",
       "Implémentation du lecteur audio avec Howler.js et gestion d'état globale via Zustand.",
       "Itérations successives sur l'UI : navigation, gestion des playlists, état du lecteur persistant.",
+      "Prochaine étape, HarmonyMind : un module de recommandations à partir de l'historique d'écoute (approche mixte embeddings et signaux d'usage), dont la spécification et le contrat d'API sont posés.",
     ],
     technologies: ["TypeScript", "JavaScript", "React", "Zustand", "Howler.js", "PostgreSQL", "SQL"],
     outils: ["Supabase", "VSCode", "Git / GitHub", "Figma (maquettes)"],
     resultats:
-      "Première version fonctionnelle : authentification, lecture en streaming, gestion d'une bibliothèque personnelle (playlists, favoris) et historique d'écoute. Base prête à recevoir le module HarmonyMind.",
+      "Première version fonctionnelle : authentification, lecture en streaming, gestion d'une bibliothèque personnelle (playlists, favoris) et historique d'écoute. L'historique collecté servira de base aux recommandations d'HarmonyMind.",
     difficultes:
       "Gérer la persistance de l'état du lecteur entre navigations sans casser le flux audio a demandé plusieurs itérations sur l'architecture front.",
     apports:
@@ -86,41 +115,13 @@ export const projets: Projet[] = [
     confidentialite: "public",
   },
   {
-    slug: "harmonymind",
-    titre: "HarmonyMind",
-    emoji: "🧠",
-    type: "perso",
-    resume:
-      "Module d'intelligence pour Beatshelf : recommandations personnalisées basées sur l'historique d'écoute et les embeddings.",
-    contexte:
-      "Extension naturelle de Beatshelf, HarmonyMind vise à transformer une simple bibliothèque musicale en outil de découverte progressive en exploitant l'usage réel de l'utilisateur.",
-    demande:
-      "Proposer à l'utilisateur des titres similaires, des enchaînements cohérents et de la découverte progressive, à partir des données collectées sur Beatshelf.",
-    demarche: [
-      "Étude des approches : filtrage collaboratif, content-based, embeddings audio.",
-      "Choix d'un pipeline mixte basé sur des embeddings + signaux d'usage.",
-      "Définition du contrat d'API entre HarmonyMind et Beatshelf.",
-    ],
-    technologies: ["Python", "SQL"],
-    outils: ["Supabase", "Jupyter", "Git / GitHub"],
-    resultats:
-      "Spécification fonctionnelle et technique posée. Le module est en cours de conception, l'implémentation suivra l'arrivée d'un volume de données suffisant côté Beatshelf.",
-    apports:
-      "Réflexion produit sur ce que l'IA apporte vraiment à un usage concret, sans tomber dans la techno pour la techno.",
-    liens: [],
-    periode: "À venir (post-Beatshelf v1)",
-    role: "Concepteur / futur développeur",
-    confidentialite: "public",
-  },
-  {
     slug: "cloudinventory-v2",
     titre: "CloudInventory v2",
-    emoji: "☁️",
     type: "pro",
     resume:
       "Outil API-first d'inventaire et de supervision d'un parc virtualisé, agrégeant vCenter et EfficientIP comme sources de vérité.",
     contexte:
-      "Mission réalisée en alternance chez Capgemini Technology Services pour un client grand compte du secteur public. L'outil v1 était un script PowerShell + classeur Excel difficile à maintenir et peu exploitable au quotidien.",
+      "Mission réalisée en alternance chez Capgemini Technology Services pour la DGA (Direction générale de l'armement). L'outil v1 était un script PowerShell + classeur Excel difficile à maintenir et peu exploitable au quotidien.",
     demande:
       "Reconstruire l'outil sur une base API-first afin de centraliser les informations issues de plusieurs sources, fournir une vue d'inventaire fiable (serveurs, VMs, IP/DNS, applications, utilisateurs) et faciliter la recherche, le filtrage et la simulation d'alertes.",
     demarche: [
@@ -138,17 +139,20 @@ export const projets: Projet[] = [
       "Aligner les modèles de données entre plusieurs sources hétérogènes (EfficientIP, vCenter, RVTools) tout en garantissant l'unicité des objets.",
     apports:
       "Travail dans un cadre Scrum réel, expérience d'un projet long avec plusieurs intervenants et confrontation à des contraintes de production.",
-    liens: [{ label: "Code source (privé)", url: "https://github.com/Fr0gzilla/CloudInventory.v2" }],
+    liens: [
+      {
+        label: "Version publique refaite à part (GitHub)",
+        url: "https://github.com/Fr0gzilla/CloudInventory",
+      },
+    ],
     preview: `${basePath}/previews/cloudinventory.webp`,
     periode: "Janvier 2025 → Juillet 2026",
     role: "Développeur (équipe Capgemini, mission client)",
-    // TODO: valider mention publique du client avec tuteur Capgemini avant remise en clair.
-    confidentialite: "anonymise",
+    confidentialite: "public",
   },
   {
     slug: "cyber-hoot",
     titre: "Cyber-Hoot",
-    emoji: "🛡️",
     type: "scolaire",
     resume:
       "Plateforme web de quiz interactifs dédiée à la sensibilisation cybersécurité, inspirée de Kahoot.",
@@ -176,6 +180,28 @@ export const projets: Projet[] = [
     periode: "2024 — 2025",
     role: "Contributeur (équipe scolaire)",
     confidentialite: "public",
+  },
+];
+
+// Projets démarrés mais sans code à montrer pour l'instant : affichés en une ligne, sans lien.
+export type ProjetEnPreparation = { titre: string; resume: string };
+
+export const projetsEnPreparation: ProjetEnPreparation[] = [
+  {
+    titre: "RouilleBoy",
+    resume: "Émulateur Game Boy écrit en Rust et compilé en WebAssembly, pour jouer dans le navigateur.",
+  },
+  {
+    titre: "MCP-France",
+    resume: "Serveurs MCP qui permettent aux assistants IA de répondre à partir des données publiques françaises.",
+  },
+  {
+    titre: "Antikafka",
+    resume: "Traduit un courrier administratif en français simple : ce qu'il dit, quoi faire et avant quand, avec les sources officielles.",
+  },
+  {
+    titre: "Scalpel",
+    resume: "Expériences d'interprétabilité sur un modèle de langage franco-anglais, pour comprendre comment il traite le français.",
   },
 ];
 

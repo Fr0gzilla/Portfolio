@@ -5,22 +5,42 @@ export default function ScolaireSection() {
       className="fade-section max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-24"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[var(--text-primary)]">
-        Mon Parcours Scolaire 🎓
+        Mon Parcours Scolaire
       </h2>
 
       <div className="h-[3px] w-24 bg-[var(--accent)] mb-10" />
 
       <div className="flex flex-col gap-8">
+        {/* OBJECTIF : formation visée après le Bachelor (bordure en pointillés pour la distinguer). */}
+        <div className="glass-strong rounded-2xl p-6 sm:p-8 border-2 border-dashed !border-[var(--accent)]/50">
+          <span className="inline-block mb-3 px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-[var(--accent)] text-[var(--bg-primary)]">
+            Objectif
+          </span>
+
+          <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">
+            Master Big Data &amp; Intelligence Artificielle, en alternance
+          </h3>
+
+          <p className="text-[var(--accent)] font-semibold mb-4">
+            2027 → 2029
+          </p>
+
+          <p className="text-[var(--text-secondary)] leading-relaxed">
+            Après le Bachelor, je vise un master en big data et IA, en alternance. En parallèle, je
+            veux passer des certifications Scrum pour, à terme, devenir Scrum Master.
+          </p>
+        </div>
+
         {/* BACHELOR */}
         <div
           className="glass-strong rounded-2xl p-6 sm:p-8 transition-colors duration-200
                      hover:border-[var(--accent)]/50"
         >
           <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">
-            Bachelor Développement Informatique – 3<sup>e</sup> année 🚀
+            Bachelor Développement Informatique – 3<sup>e</sup> année
           </h3>
 
-          <p className="text-[var(--text-muted)]">📍 Sup de Vinci</p>
+          <p className="text-[var(--text-muted)]">Sup de Vinci</p>
 
           <p className="text-[var(--accent)] font-semibold mb-4">
             2026 → 2027
@@ -37,10 +57,10 @@ export default function ScolaireSection() {
                      hover:border-[var(--accent)]/50"
         >
           <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">
-            BTS SIO – Option SLAM 💻
+            BTS SIO – Option SLAM
           </h3>
 
-          <p className="text-[var(--text-muted)]">📍 ESNA — Bruz</p>
+          <p className="text-[var(--text-muted)]">ESNA — Bruz</p>
 
           <p className="text-[var(--accent)] font-semibold mb-4">
             2024 → 2026
@@ -57,11 +77,11 @@ export default function ScolaireSection() {
                      hover:border-[var(--accent)]/50"
         >
           <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">
-            Baccalauréat Général 🎓
+            Baccalauréat Général
           </h3>
 
           <p className="text-[var(--text-muted)]">
-            📍 Lycée Benjamin Franklin — Auray
+            Lycée Benjamin Franklin — Auray
           </p>
 
           <p className="text-[var(--accent)] font-semibold mb-4">

@@ -5,7 +5,7 @@ export default function ParcoursSection() {
       className="fade-section max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-24"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[var(--text-primary)]">
-        Mon Parcours Professionnel 👔
+        Mon Parcours Professionnel
       </h2>
       <div className="h-[3px] w-24 bg-[var(--accent)] mb-10" />
 
@@ -16,22 +16,21 @@ export default function ParcoursSection() {
                      hover:border-[var(--accent)]/50"
         >
           <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">
-            Apprenti Développeur – Capgemini Technology Services 💼
+            Apprenti Développeur – Capgemini Technology Services
           </h3>
 
-          <p className="text-[var(--text-muted)] mb-4">📍 Rennes</p>
+          <p className="text-[var(--text-muted)] mb-4">Rennes</p>
 
           <p className="text-[var(--accent)] font-semibold mb-2">
             Septembre 2024 → Janvier 2025
           </p>
 
           <p className="text-[var(--text-secondary)] leading-relaxed mb-6">
-            À mon arrivée chez Capgemini, j&apos;ai suivi un parcours d&apos;intégration comprenant plusieurs formations internes. J&apos;ai notamment été formé sur Terraform pour la gestion d&apos;infrastructure as code, ainsi que sur Ansible pour l&apos;automatisation de configurations. Durant cette période, j&apos;ai également obtenu la certification SAFe, qui m&apos;a permis de me familiariser avec les pratiques agiles à l&apos;échelle.
+            À mon arrivée chez Capgemini, j&apos;ai suivi un parcours d&apos;intégration comprenant plusieurs formations internes. J&apos;ai notamment été formé sur Terraform pour la gestion d&apos;infrastructure as code, ainsi que sur Ansible pour l&apos;automatisation de configurations. J&apos;ai aussi découvert le cadre SAFe et les pratiques agiles à l&apos;échelle, dans lesquelles j&apos;ai évolué ensuite.
           </p>
 
-          {/* TODO: valider mention publique du client avec tuteur Capgemini avant remise en clair. */}
           <h4 className="text-xl font-bold mb-1 text-[var(--text-primary)]">
-            Développeur – Mission grand compte secteur public <span className="text-sm font-normal text-[var(--text-muted)]">(via Capgemini)</span>
+            Développeur – Mission à la DGA <span className="text-sm font-normal text-[var(--text-muted)]">(via Capgemini)</span>
           </h4>
 
           <p className="text-[var(--accent)] font-semibold mb-2">
@@ -39,7 +38,7 @@ export default function ParcoursSection() {
           </p>
 
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            En mission chez un grand compte du secteur public, je participe au développement et à l&apos;évolution d&apos;outils internes en fonction des besoins métier, que ce soit pour des nouvelles fonctionnalités ou des correctifs. Je suis impliqué dans l&apos;ensemble du cycle projet, du cadrage à la mise en production, en passant par la conception et les tests. Je rédige également la documentation technique et utilisateur associée. Le travail s&apos;organise en méthode Scrum, avec des sprints et des cérémonies régulières.
+            En mission à la DGA (Direction générale de l&apos;armement), j&apos;ai participé au développement et à l&apos;évolution d&apos;outils internes en fonction des besoins métier, que ce soit pour des nouvelles fonctionnalités ou des correctifs. J&apos;ai été impliqué dans l&apos;ensemble du cycle projet, du cadrage à la mise en production, en passant par la conception et les tests. J&apos;ai également rédigé la documentation technique et utilisateur associée. Le travail s&apos;organisait en méthode Scrum, avec des sprints et des cérémonies régulières.
           </p>
         </div>
 
@@ -49,11 +48,11 @@ export default function ParcoursSection() {
                      hover:border-[var(--accent)]/50"
         >
           <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">
-            Moniteur de Voile ⛵
+            Moniteur de Voile
           </h3>
 
           <p className="text-[var(--accent)] font-semibold">2023 → Aujourd&apos;hui</p>
-          <p className="text-[var(--text-muted)] mb-4">📍 Carnac (Morbihan)</p>
+          <p className="text-[var(--text-muted)] mb-4">Carnac (Morbihan)</p>
 
           <p className="text-[var(--text-secondary)] leading-relaxed">
             Expérience dans un centre nautique breton : encadrement de séances, gestion du matériel, mise en sécurité du public et initiation à la pratique de la voile. Cette expérience m&apos;a appris la pédagogie, la responsabilité et la gestion de groupe. Activité poursuivie ponctuellement à titre bénévole.

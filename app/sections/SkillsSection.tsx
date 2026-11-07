@@ -7,6 +7,11 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 // mono : logo noir, inversé en thème sombre (cf. .logo-mono dans globals.css).
 type Skill = { name: string; img: string; mono?: boolean };
 
+// Largeur d'une carte : 3, 4 puis 5 par ligne selon l'écran, en tenant compte des espaces.
+// Les cartes sont en flex centré pour que la dernière ligne incomplète soit au milieu.
+const CARTE_LARGEUR =
+  "w-[calc((100%-1.5rem)/3)] sm:w-[calc((100%-3rem)/3)] md:w-[calc((100%-7.5rem)/4)] lg:w-[calc((100%-10rem)/5)]";
+
 type Categorie = { titre: string; skills: Skill[] };
 
 const categories: Categorie[] = [
@@ -58,7 +63,7 @@ export default function SkillsSection() {
       className="fade-section max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[var(--text-primary)]">
-        Mes compétences développement 🧑‍💻
+        Mes compétences développement
       </h2>
 
       <div className="h-[3px] w-24 bg-[var(--accent)] mb-10" />
@@ -137,16 +142,16 @@ function OngletsCompetences() {
             id={`skills-panel-${i}`}
             role="tabpanel"
             aria-labelledby={`tab-${i}`}
-            className={`[grid-area:1/1] self-start grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-6 md:gap-10
+            className={`[grid-area:1/1] self-start flex flex-wrap justify-center gap-3 sm:gap-6 md:gap-10
                         transition-opacity duration-300 ${i === actif ? "opacity-100" : "opacity-0 invisible"}`}
           >
             {c.skills.map((tech) => (
               <div
                 key={tech.name}
-                className="glass-strong rounded-xl flex flex-col items-center justify-center
-                           w-full aspect-[5/6] hover:border-[var(--accent)]/50
+                className={`glass-strong rounded-xl flex flex-col items-center justify-center
+                           ${CARTE_LARGEUR} aspect-[5/6] hover:border-[var(--accent)]/50
                            hover:shadow-[0_0_20px_var(--accent-glow)]
-                           transition-colors duration-200"
+                           transition-colors duration-200`}
               >
                 <img
                   src={tech.img}

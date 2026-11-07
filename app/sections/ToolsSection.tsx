@@ -1,9 +1,9 @@
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 // wide : logo texte (wordmark), affiché plus large que les logos carrés.
-const tools: { name: string; img: string; wide?: boolean }[] = [
+const tools: { name: string; img: string; wide?: boolean; mono?: boolean }[] = [
   { name: "VSCode", img: `${basePath}/logos/vscode.webp` },
-  { name: "GitHub", img: `${basePath}/logos/github-light.webp` },
+  { name: "GitHub", img: `${basePath}/logos/github-light.webp`, mono: true },
   { name: "GitLab", img: `${basePath}/logos/gitlab.webp` },
   { name: "Kali Linux", img: `${basePath}/logos/kali-linux.webp` },
   { name: "Palo Alto", img: `${basePath}/logos/palo-alto.webp` },
@@ -12,6 +12,10 @@ const tools: { name: string; img: string; wide?: boolean }[] = [
   { name: "VMware vCenter", img: `${basePath}/logos/vmware.svg`, wide: true },
   { name: "Figma", img: `${basePath}/logos/figma.svg` },
 ];
+
+// Même largeur que les cartes de compétences : 3, 4 puis 5 par ligne, dernière ligne centrée.
+const CARTE_LARGEUR =
+  "w-[calc((100%-1.5rem)/3)] sm:w-[calc((100%-3rem)/3)] md:w-[calc((100%-7.5rem)/4)] lg:w-[calc((100%-10rem)/5)]";
 
 export default function ToolsSection() {
   return (
@@ -28,21 +32,21 @@ export default function ToolsSection() {
         Voici les outils et logiciels que j&apos;utilise dans mes projets et que j&apos;ai pratiqués en alternance.
       </p>
 
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-6 md:gap-10">
+      <div className="flex flex-wrap justify-center gap-3 sm:gap-6 md:gap-10">
         {tools.map((tool) => (
           <div
             key={tool.name}
-            className="glass-strong rounded-xl flex flex-col items-center justify-center
-                       w-full aspect-[5/6] hover:border-[var(--accent)]/50
+            className={`glass-strong rounded-xl flex flex-col items-center justify-center
+                       ${CARTE_LARGEUR} aspect-[5/6] hover:border-[var(--accent)]/50
                        hover:shadow-[0_0_20px_var(--accent-glow)]
-                       transition-colors duration-200"
+                       transition-colors duration-200`}
           >
             <img
               src={tool.img}
               alt={`Logo ${tool.name}`}
               loading="lazy"
               decoding="async"
-              className={`${tool.wide ? "w-[85%] sm:w-28 md:w-36" : "w-11 sm:w-16 md:w-20"} h-11 sm:h-16 md:h-20 object-contain mb-2 sm:mb-3`}
+              className={`${tool.wide ? "w-[85%] sm:w-28 md:w-36" : "w-11 sm:w-16 md:w-20"} h-11 sm:h-16 md:h-20 object-contain mb-2 sm:mb-3${tool.mono ? " logo-mono" : ""}`}
             />
             <p className="font-semibold text-center text-xs sm:text-sm md:text-base leading-tight px-1 text-[var(--text-primary)]">
               {tool.name}

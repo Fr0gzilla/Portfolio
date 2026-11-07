@@ -5,33 +5,27 @@ export default function AboutSection() {
       className="fade-section max-w-5xl mx-auto px-4 sm:px-6 py-20 md:py-28"
     >
       <h2 className="text-3xl font-bold mb-6 text-center text-[var(--text-primary)]">
-        À propos de moi
+        À propos
       </h2>
 
       <div className="glass-strong rounded-2xl p-6 sm:p-8">
         <div className="space-y-6 text-lg leading-relaxed text-[var(--text-secondary)]">
           <p>
-            Salut, moi c&apos;est
-            <span className="text-[var(--accent)] font-semibold"> Marceau Gioanetti</span> 👋
+            Salut, moi c&apos;est{" "}
+            <span className="text-[var(--accent)] font-semibold">Marceau</span> ! Je suis en 3
+            <sup>e</sup> année de Bachelor Développement Informatique à Sup de Vinci, après un BTS SIO
+            option SLAM à l&apos;ESNA de Bruz.
           </p>
 
           <p>
-            Je suis actuellement en 3<sup>e</sup> année de
-            <span className="font-semibold"> Bachelor Développement Informatique</span> à Sup de Vinci 💻,
-            après un <span className="font-semibold">BTS SIO option SLAM</span> à l&apos;ESNA de Bruz 🗺️
-            et deux ans d&apos;alternance chez <span className="font-semibold">Capgemini</span>.
+            Ici, vous trouverez les projets que j&apos;ai faits en cours, et ceux que je développe
+            pour le plaisir.
           </p>
 
           <p>
-            Toujours en cours d&apos;étude 🎓, je vous propose sur ce portfolio de découvrir
-            mes études et projets que j&apos;ai pu entreprendre.
-          </p>
-
-          <p>
-            Vous retrouverez ci-dessous mon
-            <span className="text-[var(--accent)] font-semibold"> CV</span>
-            {" "}ainsi que mes différents
-            <span className="text-[var(--accent)] font-semibold"> projets</span> 👩‍💻
+            Je cherche une{" "}
+            <span className="text-[var(--accent)] font-semibold">alternance en développement</span>.
+            Mon CV est juste en dessous, n&apos;hésitez pas à y jeter un œil !
           </p>
         </div>
 
@@ -40,7 +34,7 @@ export default function AboutSection() {
             href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/cv`}
             className="px-10 py-4 rounded-xl border border-[var(--accent)] text-[var(--accent)] text-xl font-semibold hover:bg-[var(--accent)] hover:text-[var(--bg-primary)] transition-colors duration-200"
           >
-            CV
+            Voir mon CV
           </a>
         </div>
       </div>
