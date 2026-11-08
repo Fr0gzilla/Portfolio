@@ -85,11 +85,11 @@ export const projets: Projet[] = [
   {
     slug: "cyber-hoot",
     titre: "CyberHoot",
-    type: "perso",
+    type: "scolaire",
     resume:
-      "Plateforme web de quiz de sensibilisation à la cybersécurité, en solo ou en direct avec toute une classe : refonte complète, sécurisée et testée, d'un ancien projet de groupe.",
+      "Plateforme web de quiz de sensibilisation à la cybersécurité, en solo ou en direct avec toute une classe : refonte complète, sécurisée et testée, d'un projet d'étude de BTS SIO.",
     contexte:
-      "Cyber-hoot était un projet de groupe réalisé pendant mes études : il fonctionnait en démonstration, mais n'était pas utilisable en vrai (failles XSS et CSRF, score calculé par le navigateur, base de données désynchronisée). Je l'ai repris seul et entièrement reconstruit, version par version.",
+      "Cyber-hoot est un projet d'étude de groupe réalisé pendant mon BTS SIO (option SLAM) : il fonctionnait en démonstration, mais n'était pas utilisable en vrai (failles XSS et CSRF, score calculé par le navigateur, base de données désynchronisée). Je l'ai repris seul et entièrement reconstruit, version par version.",
     demande:
       "Une plateforme où l'on joue des quiz avec correction expliquée, progression et badges ; où des créateurs rédigent des quiz validés par un administrateur ; et où un animateur lance une partie en direct que les élèves rejoignent depuis leur téléphone avec un code PIN. Une sécurité exemplaire, puisque le sujet est la cybersécurité.",
     demarche: [
@@ -109,7 +109,7 @@ export const projets: Projet[] = [
       "Reprendre une application existante et la rendre fiable : mesurer avant de corriger, prouver chaque correction par un test, et documenter les choix (sécurité, accessibilité, RGPD).",
     liens: [
       { label: "Code source de la refonte (GitHub)", url: "https://github.com/Fr0gzilla/CyberHoot" },
-      { label: "Ancienne version (projet de groupe)", url: "https://github.com/lele214/Cyber-hoot" },
+      { label: "Version d'origine (projet de groupe du BTS)", url: "https://github.com/lele214/Cyber-hoot" },
     ],
     preview: `${basePath}/previews/cyberhoot.webp`,
     periode: "Novembre 2026",
