@@ -42,7 +42,7 @@ export const projets: Projet[] = [
       "Optimisation pilotée par la mesure : bancs d'essai avant/après et comparaison de configurations pour réduire le coût en tokens.",
     ],
     technologies: ["Python", "Bash", "Docker", "Node.js", "PHP"],
-    outils: ["Claude Code", "opencode", "Ubuntu Server", "systemd", "Docker rootless", "Git / GitHub"],
+    outils: ["opencode", "Ubuntu Server", "systemd", "Docker rootless", "Git / GitHub"],
     resultats:
       "En service, avec 398 tests automatisés et 17 674 vérifications de permissions. Une application web (PHP, MySQL, Docker) a été menée seule de nuit ; refaite après optimisation du système : −50 % de temps, −32 % d'appels aux modèles et −46 % de tokens relus. Le tableau de bord web de Maestro a été construit, audité et recetté par ses propres agents.",
     liens: [{ label: "Revue du projet (GitHub)", url: "https://github.com/Fr0gzilla/Maestro" }],
@@ -69,7 +69,7 @@ export const projets: Projet[] = [
       "Application traduite en 6 langues. Fabrication automatisée par GitHub Actions : tests, création du .dmg, publication de la version et mise à jour de Homebrew.",
     ],
     technologies: ["C++", "C", "QML", "Qt", "CMake"],
-    outils: ["GitHub Actions", "Homebrew", "Git / GitHub", "Claude Code"],
+    outils: ["GitHub Actions", "Homebrew", "Git / GitHub"],
     resultats:
       "Sept versions publiées en une semaine (de la 1.0.0 à la 1.2.2), téléchargeables depuis GitHub ou installables avec Homebrew, sur les Mac à puce Apple sous macOS 15 ou plus récent.",
     difficultes:
