@@ -71,7 +71,7 @@ export const projets: Projet[] = [
     technologies: ["C++", "C", "QML", "Qt", "CMake"],
     outils: ["GitHub Actions", "Homebrew", "Git / GitHub", "Claude Code"],
     resultats:
-      "Six versions publiées en une semaine (de la 1.0.0 à la 1.2.1), téléchargeables depuis GitHub ou installables avec Homebrew, sur les Mac à puce Apple sous macOS 15 ou plus récent.",
+      "Sept versions publiées en une semaine (de la 1.0.0 à la 1.2.2), téléchargeables depuis GitHub ou installables avec Homebrew, sur les Mac à puce Apple sous macOS 15 ou plus récent.",
     difficultes:
       "Comprendre un gros code C/C++ existant avant de le restructurer, et suivre les changements côté Sony (par exemple les certificats que OpenSSL 3.5 ne validait plus).",
     apports:
@@ -80,6 +80,40 @@ export const projets: Projet[] = [
     preview: `${basePath}/previews/macnplay.webp`,
     periode: "Novembre 2026 → en cours",
     role: "Développeur (projet solo, basé sur chiaki-ng)",
+    confidentialite: "public",
+  },
+  {
+    slug: "cyber-hoot",
+    titre: "CyberHoot",
+    type: "perso",
+    resume:
+      "Plateforme web de quiz de sensibilisation à la cybersécurité, en solo ou en direct avec toute une classe : refonte complète, sécurisée et testée, d'un ancien projet de groupe.",
+    contexte:
+      "Cyber-hoot était un projet de groupe réalisé pendant mes études : il fonctionnait en démonstration, mais n'était pas utilisable en vrai (failles XSS et CSRF, score calculé par le navigateur, base de données désynchronisée). Je l'ai repris seul et entièrement reconstruit, version par version.",
+    demande:
+      "Une plateforme où l'on joue des quiz avec correction expliquée, progression et badges ; où des créateurs rédigent des quiz validés par un administrateur ; et où un animateur lance une partie en direct que les élèves rejoignent depuis leur téléphone avec un code PIN. Une sécurité exemplaire, puisque le sujet est la cybersécurité.",
+    demarche: [
+      "Inventaire des 20 défauts de l'ancienne version, chacun corrigé et prouvé par un test qui empêche son retour.",
+      "Modélisation complète (règles de gestion, MCD, MLD, diagrammes de classes et de séquence) et migrations Alembic comme seule source du schéma.",
+      "Parties en direct : code PIN et QR code, chrono, points selon la rapidité, classement et podium ; transitions atomiques pour que deux clics simultanés ne fassent avancer la partie qu'une fois. Testé avec 200 joueurs.",
+      "Sécurité : mots de passe Argon2id, double authentification obligatoire pour les administrateurs, CSP stricte, protection CSRF, limitation de débit, HTTPS avec HSTS, journal d'audit, conteneurs sans privilège.",
+      "Qualité : plus de 230 tests exécutés sur MySQL, intégration continue GitHub Actions (analyse du code, des dépendances, de l'image Docker et recherche de secrets), audit d'accessibilité WCAG 2.2 AA.",
+    ],
+    technologies: ["Python", "Flask", "SQLAlchemy", "MySQL", "Redis", "Jinja2", "Tailwind CSS", "JavaScript"],
+    outils: ["Docker Compose", "Nginx", "pytest", "GitHub Actions", "Trivy", "Git / GitHub"],
+    resultats:
+      "Six versions livrées (de la 1.0 à la 3.0), chacune validée par l'intégration continue : 94 % du code couvert par les tests, aucun défaut d'accessibilité détecté sur 30 pages, une partie en direct qui tient 200 joueurs derrière une seule adresse IP.",
+    difficultes:
+      "Des tests qui échouaient seulement sur MySQL, un interblocage de la base quand 200 joueurs rejoignent en même temps, et une vérification CSRF qui refusait les formulaires en HTTPS : chaque problème a été reproduit, compris puis corrigé.",
+    apports:
+      "Reprendre une application existante et la rendre fiable : mesurer avant de corriger, prouver chaque correction par un test, et documenter les choix (sécurité, accessibilité, RGPD).",
+    liens: [
+      { label: "Code source de la refonte (GitHub)", url: "https://github.com/Fr0gzilla/CyberHoot" },
+      { label: "Ancienne version (projet de groupe)", url: "https://github.com/lele214/Cyber-hoot" },
+    ],
+    preview: `${basePath}/previews/cyberhoot.webp`,
+    periode: "Novembre 2026",
+    role: "Développeur (refonte en solo d'un projet d'équipe)",
     confidentialite: "public",
   },
   {
@@ -148,37 +182,6 @@ export const projets: Projet[] = [
     preview: `${basePath}/previews/cloudinventory.webp`,
     periode: "Janvier 2025 → Juillet 2026",
     role: "Développeur (équipe Capgemini, mission client)",
-    confidentialite: "public",
-  },
-  {
-    slug: "cyber-hoot",
-    titre: "Cyber-Hoot",
-    type: "scolaire",
-    resume:
-      "Plateforme web de quiz interactifs dédiée à la sensibilisation cybersécurité, inspirée de Kahoot.",
-    contexte:
-      "Projet de groupe réalisé dans le cadre du BTS SIO. L'objectif pédagogique : produire une application web complète, du modèle de données au déploiement en conteneurs.",
-    demande:
-      "Proposer une plateforme de quiz interactifs autour de la culture cybersécurité, avec un système de rôles (joueur, créateur, admin) et un suivi des scores des participants.",
-    demarche: [
-      "Découpage du projet en lots fonctionnels (auth, gestion des quiz, jeu en temps réel, scores).",
-      "Modélisation de la base de données (utilisateurs, quiz, questions, parties, réponses).",
-      "Développement du backend Flask + SQLAlchemy et de l'interface Jinja2/Tailwind.",
-      "Conteneurisation via Docker Compose (app + base MySQL) pour faciliter le déploiement.",
-      "Tests fonctionnels manuels et corrections en itérations.",
-    ],
-    technologies: ["Python", "Flask", "SQLAlchemy", "Jinja2", "JavaScript", "Tailwind CSS", "MySQL", "SQL"],
-    outils: ["Docker Compose", "Git / GitHub", "VSCode"],
-    resultats:
-      "Application fonctionnelle en local, déployable en une commande via Docker Compose, et exploitable en classe pour des sessions de sensibilisation.",
-    difficultes:
-      "Coordination du travail à plusieurs sur la même base de code et synchronisation des évolutions du modèle de données.",
-    apports:
-      "Première vraie expérience de projet de groupe en mode collaboratif Git, et compréhension concrète d'une stack web complète conteneurisée.",
-    liens: [{ label: "Code source GitHub", url: "https://github.com/lele214/Cyber-hoot" }],
-    preview: `${basePath}/previews/cyberhoot.webp`,
-    periode: "2024 — 2025",
-    role: "Contributeur (équipe scolaire)",
     confidentialite: "public",
   },
 ];
