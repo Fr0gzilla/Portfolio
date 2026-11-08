@@ -48,6 +48,7 @@ export const projets: Projet[] = [
       "En service, avec 398 tests automatisés et 17 674 vérifications de permissions. Une application web (PHP, MySQL, Docker) a été menée seule de nuit ; refaite après optimisation du système : −50 % de temps, −32 % d'appels aux modèles et −46 % de tokens relus. Le tableau de bord web de Maestro a été construit, audité et recetté par ses propres agents.",
     liens: [{ label: "Revue du projet (GitHub)", url: "https://github.com/Fr0gzilla/Maestro" }],
     preview: `${basePath}/previews/maestro.webp`,
+    icone: `${basePath}/previews/maestro-icone.webp`,
     periode: "2026",
     role: "Concepteur et développeur (projet solo)",
     confidentialite: "public",
