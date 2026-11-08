@@ -3,27 +3,27 @@
 /* ======================== THEME VARIABLES ======================== */
 
 :root {
-  --bg-primary: #f0f4f8;
-  --bg-gradient-1: #c7d2fe;
-  --bg-gradient-2: #a5f3fc;
-  --bg-gradient-3: #fbcfe8;
+  --bg-primary: #f8fafc;
+  --bg-gradient-1: #818cf8;
+  --bg-gradient-2: #38bdf8;
+  --bg-gradient-3: #f472b6;
 
-  --glass-bg: rgba(255, 255, 255, 0.2);
-  --glass-border: rgba(255, 255, 255, 0.35);
-  --glass-shadow: rgba(0, 0, 0, 0.05);
+  --glass-bg: #ffffff;
+  --glass-border: #e2e8f0;
+  --glass-shadow: rgba(15, 23, 42, 0.08);
 
   --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
 
-  --accent: #f97316;
-  --accent-hover: #ea580c;
-  --accent-glow: rgba(249, 115, 22, 0.2);
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-glow: rgba(79, 70, 229, 0.2);
 
-  --card-bg: rgba(255, 255, 255, 0.25);
-  --card-border: rgba(255, 255, 255, 0.4);
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
 
-  --nav-bg: rgba(255, 255, 255, 0.65);
+  --nav-bg: rgba(255, 255, 255, 0.85);
 
 }
 
@@ -83,7 +83,7 @@ section {
     radial-gradient(circle at 80% 20%, var(--bg-gradient-2) 0%, transparent 50%),
     radial-gradient(circle at 50% 80%, var(--bg-gradient-3) 0%, transparent 55%),
     var(--bg-primary);
-  opacity: 0.55;
+  opacity: 0.45;
 }
 
 .dark .bg-static {
