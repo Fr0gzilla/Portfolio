@@ -42,7 +42,7 @@ export default function ProjetFicheClient({
               alt=""
               width={64}
               height={64}
-              className="w-12 h-12 md:w-16 md:h-16 shrink-0"
+              className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-xl"
             />
           )}
           <h1 className="text-3xl md:text-5xl font-bold text-[var(--text-primary)]">
