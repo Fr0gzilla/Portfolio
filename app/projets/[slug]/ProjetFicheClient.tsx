@@ -35,9 +35,20 @@ export default function ProjetFicheClient({
           <span aria-hidden="true">←</span> Retour aux projets
         </Link>
 
-        <h1 className="text-3xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
-          {projet.titre}
-        </h1>
+        <div className="flex items-center gap-4 mb-4">
+          {projet.icone && (
+            <img
+              src={projet.icone}
+              alt=""
+              width={64}
+              height={64}
+              className="w-12 h-12 md:w-16 md:h-16 shrink-0"
+            />
+          )}
+          <h1 className="text-3xl md:text-5xl font-bold text-[var(--text-primary)]">
+            {projet.titre}
+          </h1>
+        </div>
 
         <div className="flex flex-wrap gap-2">
           <span className="px-3 py-1 text-xs font-medium rounded-full glass text-[var(--accent)]">

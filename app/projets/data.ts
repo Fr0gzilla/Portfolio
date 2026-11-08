@@ -16,6 +16,7 @@ export type Projet = {
   apports?: string;
   liens: { label: string; url: string }[];
   preview?: string;
+  icone?: string;
   periode: string;
   role: string;
   confidentialite?: "public" | "anonymise" | "interne";
@@ -78,6 +79,7 @@ export const projets: Projet[] = [
       "Mener un produit jusqu'à sa distribution réelle : versions, notes de version, traductions, documentation pour les utilisateurs et pour les contributeurs.",
     liens: [{ label: "Code source et téléchargement (GitHub)", url: "https://github.com/Fr0gzilla/Mac-n-Play" }],
     preview: `${basePath}/previews/macnplay.webp`,
+    icone: `${basePath}/previews/macnplay-icone.webp`,
     periode: "Novembre 2026 → en cours",
     role: "Développeur (projet solo, basé sur chiaki-ng)",
     confidentialite: "public",
