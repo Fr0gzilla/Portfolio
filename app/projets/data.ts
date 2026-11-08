@@ -114,6 +114,7 @@ export const projets: Projet[] = [
       { label: "Version d'origine (projet de groupe du BTS)", url: "https://github.com/lele214/Cyber-hoot" },
     ],
     preview: `${basePath}/previews/cyberhoot.webp`,
+    icone: `${basePath}/previews/cyberhoot-icone.svg`,
     periode: "Novembre 2026",
     role: "Développeur (refonte en solo d'un projet d'équipe)",
     confidentialite: "public",
