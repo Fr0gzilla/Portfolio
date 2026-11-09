@@ -117,7 +117,7 @@ export const projets: Projet[] = [
     preview: `${basePath}/previews/cyberhoot.webp`,
     icone: `${basePath}/previews/cyberhoot-icone.svg`,
     periode: "Novembre 2026",
-    role: "Développeur (refonte en solo d'un projet d'équipe)",
+    role: "Projet d'équipe",
     confidentialite: "public",
   },
   {
