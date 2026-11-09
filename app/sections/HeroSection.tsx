@@ -4,7 +4,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-10 max-w-6xl mx-auto relative"
+      className="min-h-[calc(100svh-5rem)] flex flex-col justify-center px-4 sm:px-6 md:px-10 max-w-6xl mx-auto relative"
     >
       <div className="hero-accent-bar" />
 
@@ -20,7 +20,7 @@ export default function HeroSection() {
       {/* Scroll indicator — animation CSS pure, ne tourne que si l'élément est visible */}
       <div
         aria-label="Indicateur de défilement"
-        className="hero-scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="hero-scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <span className="text-xs text-[var(--text-muted)] tracking-widest uppercase">Scroll</span>
         <svg
