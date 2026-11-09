@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ThemeProvider, { themeInitScript } from "./components/ThemeProvider";
@@ -7,6 +8,13 @@ import ScrollToTop from "./components/ScrollToTop";
 import FadeInProvider from "./components/FadeInProvider";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+// Police téléchargée à la construction et servie avec le site (aucun appel à Google chez le visiteur).
+const police = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-principale",
+});
 
 export const metadata = {
   title: "Portfolio – Marceau GIOANETTI",
@@ -40,7 +48,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="fr" className={police.variable} suppressHydrationWarning>
       <head>
         {/* Pose la classe de thème AVANT le rendu pour éviter le flash et le blocage du tree. */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
