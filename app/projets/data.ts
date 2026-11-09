@@ -90,9 +90,9 @@ export const projets: Projet[] = [
     titre: "CyberHoot",
     type: "scolaire",
     resume:
-      "Plateforme web de quiz de sensibilisation à la cybersécurité, en solo ou en direct avec toute une classe : refonte complète, sécurisée et testée, d'un projet d'étude de BTS SIO.",
+      "Plateforme web de quiz de sensibilisation à la cybersécurité, à jouer seul ou en direct avec toute une classe. Projet d'équipe du BTS SIO, sécurisé et testé.",
     contexte:
-      "Cyber-hoot est un projet d'étude de groupe réalisé pendant mon BTS SIO (option SLAM) : il fonctionnait en démonstration, mais n'était pas utilisable en vrai (failles XSS et CSRF, score calculé par le navigateur, base de données désynchronisée). Je l'ai repris seul et entièrement reconstruit, version par version.",
+      "Projet d'équipe réalisé en avril 2026 dans le cadre du BTS SIO (option SLAM). Une première version fonctionnait en démonstration mais n'était pas utilisable en vrai (failles XSS et CSRF, score calculé par le navigateur, base de données désynchronisée) : l'application a ensuite été reconstruite version par version pour devenir fiable et sécurisée.",
     demande:
       "Une plateforme où l'on joue des quiz avec correction expliquée, progression et badges ; où des créateurs rédigent des quiz validés par un administrateur ; et où un animateur lance une partie en direct que les élèves rejoignent depuis leur téléphone avec un code PIN. Une sécurité exemplaire, puisque le sujet est la cybersécurité.",
     demarche: [
@@ -107,12 +107,12 @@ export const projets: Projet[] = [
     resultats:
       "Six versions livrées (de la 1.0 à la 3.0), chacune validée par l'intégration continue : 94 % du code couvert par les tests, aucun défaut d'accessibilité détecté sur 30 pages, une partie en direct qui tient 200 joueurs derrière une seule adresse IP.",
     difficultes:
-      "Des tests qui échouaient seulement sur MySQL, un interblocage de la base quand 200 joueurs rejoignent en même temps, et une vérification CSRF qui refusait les formulaires en HTTPS : chaque problème a été reproduit, compris puis corrigé.",
+      "La coordination à plusieurs sur le même code et le même modèle de données, puis des problèmes techniques précis : des tests qui échouaient seulement sur MySQL, un interblocage de la base quand 200 joueurs rejoignent en même temps, et une vérification CSRF qui refusait les formulaires en HTTPS : chaque problème a été reproduit, compris puis corrigé.",
     apports:
-      "Reprendre une application existante et la rendre fiable : mesurer avant de corriger, prouver chaque correction par un test, et documenter les choix (sécurité, accessibilité, RGPD).",
+      "Travailler en équipe sur une même base de code avec Git, puis rendre une application fiable : mesurer avant de corriger, prouver chaque correction par un test, et documenter les choix (sécurité, accessibilité, RGPD).",
     liens: [
-      { label: "Code source de la refonte (GitHub)", url: "https://github.com/Fr0gzilla/CyberHoot" },
-      { label: "Version d'origine (projet de groupe du BTS)", url: "https://github.com/lele214/Cyber-hoot" },
+      { label: "Code source (GitHub)", url: "https://github.com/Fr0gzilla/CyberHoot" },
+      { label: "Première version (GitHub)", url: "https://github.com/lele214/Cyber-hoot" },
     ],
     preview: `${basePath}/previews/cyberhoot.webp`,
     icone: `${basePath}/previews/cyberhoot-icone.svg`,
