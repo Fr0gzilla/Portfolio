@@ -86,6 +86,38 @@ export const projets: Projet[] = [
     confidentialite: "public",
   },
   {
+    slug: "rainette",
+    titre: "Rainette",
+    type: "perso",
+    resume:
+      "Widget de bureau macOS qui fait le point de ma journée : les mails vraiment importants, ce que j'ai à faire, mes cours, mon agenda et les conditions en mer, avec une IA qui tourne en local.",
+    contexte:
+      "Projet personnel. Entre mes mails perso, ceux de l'école sur Outlook, Teams, l'emploi du temps sur la plateforme de l'école et mon agenda, l'information était éparpillée. Je voulais tout retrouver au même endroit, sans envoyer mes mails à un service d'IA en ligne.",
+    demande:
+      "Un widget posé sur le bureau qui trie les mails non lus pour ne garder que ce qui compte, transforme ce qui demande une action en liste à cocher, affiche les cours et l'agenda, et avec lequel on peut discuter pour ajouter un évènement ou répondre à un mail, sans que rien ne parte sans validation.",
+    demarche: [
+      "Application Swift (AppKit et SwiftUI) compilée sans Xcode, avec une IA locale (Ollama) pour le tri, les résumés et la discussion.",
+      "Tri en trois catégories (à faire, à savoir, inutile) avec un filet de sécurité dans le code, un verdict mémorisé par mail et une réparation du JSON quand le modèle le renvoie incomplet : un tri complet passe de 2 minutes à moins de 40 secondes, puis à quelques secondes pour un nouveau mail.",
+      "Lecture d'Outlook web, de Teams et de l'emploi du temps dans des pages cachées, ouvertes seulement le temps de la lecture (la mémoire passe de 2,6 Go à 140 Mo) ; pour Teams, les accusés de lecture sont bloqués pour ne rien marquer comme lu.",
+      "Des outils pour la discussion (lire l'agenda, proposer un évènement, préparer une réponse formelle ou tranquille) ; le code recale les dates quand le modèle se trompe de jour et signale les chevauchements avec les cours.",
+      "Un point du jour qui s'ouvre chaque matin à 7h, une grenouille dessinée dont l'humeur suit la journée, et les données personnelles sorties du code dans un fichier de réglages pour pouvoir publier le dépôt.",
+    ],
+    technologies: ["Swift", "SwiftUI", "AppKit", "WebKit", "EventKit", "AppleScript", "JavaScript"],
+    outils: ["Ollama", "Open-Meteo", "Git / GitHub"],
+    resultats:
+      "En service tous les jours sur mon Mac depuis novembre 2026 : sur une vingtaine de mails non lus, il en reste 2 ou 3 à l'écran, le reste est mis de côté mais toujours consultable. 68 tests automatisés couvrent les règles fragiles (dates, tri, Teams, chevauchements).",
+    difficultes:
+      "Composer avec un petit modèle local qui annonce parfois une action sans la faire, se trompe de jour de la semaine ou coupe sa réponse : chaque cas a été reproduit, puis rattrapé par du code et un test. Et lire Outlook et Teams sans API, directement dans leurs pages, sans rien marquer comme lu.",
+    apports:
+      "Construire une app macOS de bout en bout sans Xcode, intégrer un modèle d'IA local avec des garde-fous plutôt que de lui faire confiance aveuglément, et penser la vie privée dès le départ : IA locale, données hors du dépôt, vérification avant chaque publication.",
+    liens: [{ label: "Code source (GitHub)", url: "https://github.com/Fr0gzilla/Rainette" }],
+    preview: `${basePath}/previews/rainette.webp`,
+    icone: `${basePath}/previews/rainette-icone.webp`,
+    periode: "Novembre 2026 → en cours",
+    role: "Concepteur et développeur (projet solo)",
+    confidentialite: "public",
+  },
+  {
     slug: "cyber-hoot",
     titre: "CyberHoot",
     type: "scolaire",
