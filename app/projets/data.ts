@@ -118,6 +118,40 @@ export const projets: Projet[] = [
     confidentialite: "public",
   },
   {
+    slug: "yacht-club-carnac",
+    titre: "Site du Yacht Club de Carnac",
+    type: "perso",
+    resume:
+      "Refonte complète du site de l'école de voile où je suis moniteur : 14 pages pour présenter les stages, la location et les régates, et donner envie de réserver.",
+    contexte:
+      "Je suis moniteur de voile au Yacht Club de Carnac. J'ai pris l'initiative, de moi-même, de proposer au club une refonte complète de son site. Le projet est en discussion au sein du club pour sa mise en place.",
+    demande:
+      "Un site moderne et rapide, agréable sur téléphone, qui présente toutes les activités (stages, cours à l'année, location, régates, permis côtier, aviron, plongée, groupes) avec des informations exactes et un accès direct à la réservation en ligne du club.",
+    demarche: [
+      "Inventaire du contenu du site existant et vérification des informations (adresse, calendrier des régates 2026, âges et formules des stages, liens de réservation).",
+      "Site statique en HTML, CSS et JavaScript, sans framework : 14 pages, une identité visuelle propre (typographie, photos du club créditées) et un menu mobile accessible.",
+      "Référencement local : données structurées pour Google sur les pages d'activité, métadonnées de partage, mots-clés Carnac, Morbihan, Bretagne.",
+      "Accessibilité et performance : menu mobile accessible, contrastes vérifiés (AA), images en WebP chargées à la demande, fichiers versionnés pour éviter les problèmes de cache.",
+      "Côté légal : mentions légales, politique de confidentialité, et prévisions de vent en direct chargées seulement à la demande du visiteur, pour éviter les cookies tiers par défaut. Les documents d'inscription sont téléchargeables directement.",
+    ],
+    technologies: ["HTML", "CSS", "JavaScript"],
+    outils: ["GitHub Pages", "Git / GitHub", "WebP"],
+    resultats:
+      "Un site complet et en ligne, prêt à être repris par le club : 14 pages, 55 versions entre juillet et octobre 2026. Il est actuellement présenté et discuté au sein du club en vue de sa mise en place.",
+    difficultes:
+      "Rester fidèle à l'identité et aux informations réelles du club tout en modernisant entièrement la présentation, et rendre le site agréable aussi bien sur un grand écran que sur un téléphone.",
+    apports:
+      "Mener un projet de ma propre initiative pour une vraie structure, de l'analyse de l'existant à un site prêt à l'emploi, en pensant aux visiteurs (accessibilité, rapidité) comme au club (référencement, réservations, conformité).",
+    liens: [
+      { label: "Voir le site", url: "https://fr0gzilla.github.io/ycc-project/" },
+      { label: "Code source (GitHub)", url: "https://github.com/Fr0gzilla/ycc-project" },
+    ],
+    preview: `${basePath}/previews/ycc.webp`,
+    periode: "Juillet → octobre 2026",
+    role: "Conception et développement (initiative personnelle)",
+    confidentialite: "public",
+  },
+  {
     slug: "cyber-hoot",
     titre: "CyberHoot",
     type: "scolaire",
