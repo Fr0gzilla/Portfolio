@@ -232,3 +232,15 @@ section {
     scroll-behavior: auto !important;
   }
 }
+
+/* Projets déroulés : apparition douce. */
+.fade-in-projets:not([hidden]) {
+  animation: projets-apparition 0.35s ease-out;
+}
+@keyframes projets-apparition {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-projets:not([hidden]) { animation: none; }
+}

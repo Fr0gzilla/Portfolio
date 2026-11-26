@@ -1,5 +1,9 @@
 import Link from "next/link";
 import { projets, projetsEnPreparation, type Projet } from "../projets/data";
+import ProjetsDeroulants from "./ProjetsDeroulants";
+
+// Nombre de projets affichés d'emblée ; les autres se déroulent avec la flèche.
+const PROJETS_VISIBLES = 4;
 
 const typeLabels: Record<Projet["type"], string> = {
   perso: "Projet perso",
@@ -16,11 +20,15 @@ export default function ProjectsSection() {
       <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[var(--text-primary)]">Projets</h2>
       <div className="h-[3px] w-24 bg-[var(--accent)] mb-10" />
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {projets.map((projet) => (
+      <ProjetsDeroulants
+        premiers={projets.slice(0, PROJETS_VISIBLES).map((projet) => (
           <ProjetCarte key={projet.slug} projet={projet} />
         ))}
-      </div>
+        reste={projets.slice(PROJETS_VISIBLES).map((projet) => (
+          <ProjetCarte key={projet.slug} projet={projet} />
+        ))}
+        nombreReste={Math.max(0, projets.length - PROJETS_VISIBLES)}
+      />
 
       <h3 className="text-2xl font-bold mt-16 mb-2 text-[var(--text-primary)]">En préparation</h3>
       <p className="text-[var(--text-secondary)] mb-6">
